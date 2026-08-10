@@ -1,0 +1,337 @@
+{
+    "DTCLists": [
+        [
+  {
+    "DTCNumber": "D58087",
+    "DTCName": "Lose FMCU_Status_0xC9 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "C9",
+    "RelatedRelatedMessageID": "FMCU_Status"
+  },
+  {
+    "DTCNumber": "D58187",
+    "DTCName": "Lose CVC_HV_DrvSys_status_0xD9 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "D9",
+    "RelatedRelatedMessageID": "CVC_HV_DrvSys_status"
+  },
+  {
+    "DTCNumber": "D58287",
+    "DTCName": "Lose WCBS_STATUS_0x20D node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "20D",
+    "RelatedRelatedMessageID": "WCBS_STATUS"
+  },
+  {
+    "DTCNumber": "D58387",
+    "DTCName": "Lose Gateway_WCBS_Info_0x271 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "271",
+    "RelatedRelatedMessageID": "Gateway_WCBS_Info"
+  },
+  {
+    "DTCNumber": "D58487",
+    "DTCName": "Lose EPS_SAS_Sensor_0x17E node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "17E",
+    "RelatedRelatedMessageID": "EPS_SAS_Sensor"
+  },
+  {
+    "DTCNumber": "D58587",
+    "DTCName": "Lose WCBS_ESC_Status_0x132 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "132",
+    "RelatedRelatedMessageID": "WCBS_ESC_Status"
+  },
+  {
+    "DTCNumber": "D58687",
+    "DTCName": "Lose FCAM_AEB_Status_0x32E node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "32E",
+    "RelatedRelatedMessageID": "FCAM_AEB_Status"
+  },
+  {
+    "DTCNumber": "D58787",
+    "DTCName": "Lose TPMS_TirePressure_0x484 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "484",
+    "RelatedRelatedMessageID": "TPMS_TirePressure"
+  },
+  {
+    "DTCNumber": "D58887",
+    "DTCName": "Lose Gateway_FCAM_AEB_FCW_0x21D node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "21D",
+    "RelatedRelatedMessageID": "Gateway_FCAM_AEB_FCW"
+  },
+  {
+    "DTCNumber": "D58987",
+    "DTCName": "Lose FCAM_CMP_ACC_0x353 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "353",
+    "RelatedRelatedMessageID": "FCAM_CMP_ACC"
+  },
+  {
+    "DTCNumber": "D58A87",
+    "DTCName": "Lose FCAM_HWA_ALC_0x206 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "206",
+    "RelatedRelatedMessageID": "FCAM_HWA_ALC"
+  },
+  {
+    "DTCNumber": "D58B87",
+    "DTCName": "Lose CVC_CLAMP_STAT_0x112 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "112",
+    "RelatedRelatedMessageID": "CVC_CLAMP_STAT"
+  },
+  {
+    "DTCNumber": "D58C87",
+    "DTCName": "Lose CVC_ODO_0x20C node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "20C",
+    "RelatedRelatedMessageID": "CVC_ODO"
+  },
+  {
+    "DTCNumber": "D58D87",
+    "DTCName": "Lose FCAM_LDW_LKA_ELK_0x127 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "127",
+    "RelatedRelatedMessageID": "FCAM_LDW_LKA_ELK"
+  },
+  {
+    "DTCNumber": "D58E87",
+    "DTCName": "Lose TBOX_eCall_system_status_0x412 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "412",
+    "RelatedRelatedMessageID": "TBOX_eCall_system_status"
+  },
+  {
+    "DTCNumber": "D58F87",
+    "DTCName": "Lose BCM_VOLTAGE_0x10A node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "10A",
+    "RelatedRelatedMessageID": "BCM_VOLTAGE"
+  },
+  {
+    "DTCNumber": "D59087",
+    "DTCName": "Lose CVC_DIGIT_SPEED_0x40D node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "40D",
+    "RelatedRelatedMessageID": "CVC_DIGIT_SPEED"
+  },
+  {
+    "DTCNumber": "D59187",
+    "DTCName": "Lose CVC_SEAT_POSITION_0x41C node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "41C",
+    "RelatedRelatedMessageID": "CVC_SEAT_POSITION"
+  },
+  {
+    "DTCNumber": "D59287",
+    "DTCName": "Lose OCS_PasSts_0x41F node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "41F",
+    "RelatedRelatedMessageID": "OCS_PasSts"
+  },
+  {
+    "DTCNumber": "D59387",
+    "DTCName": "Lose Vehicle_Date_Time_0x2F8 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "2F8",
+    "RelatedRelatedMessageID": "Vehicle_Date_Time"
+  },
+  {
+    "DTCNumber": "D59487",
+    "DTCName": "Lose CVC_VEHICLE_IDENT_NUMBER_0x383 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "383",
+    "RelatedRelatedMessageID": "CVC_VEHICLE_IDENT_NUMBER"
+  },
+  {
+    "DTCNumber": "D59587",
+    "DTCName": "Lose CVC_Pedals_0x269 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "269",
+    "RelatedRelatedMessageID": "CVC_Pedals"
+  },
+  {
+    "DTCNumber": "D59687",
+    "DTCName": "Lose BCMFL_Temperature_0xA9 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "A9",
+    "RelatedRelatedMessageID": "BCMFL_Temperature"
+  },
+  {
+    "DTCNumber": "D59787",
+    "DTCName": "Lose CVC_Temp_0x2EA node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "2EA",
+    "RelatedRelatedMessageID": "CVC_Temp"
+  },
+            {
+    "DTCNumber": "D59987",
+    "DTCName": "Lose CVC_Status_0x166 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "166",
+    "RelatedRelatedMessageID": "CVC_Temp"
+  },
+          {
+    "DTCNumber": "D59887",
+    "DTCName": "Lose MHU_IC_STAT_AIRBAG_0x2F1 node",
+    "DTCType": "MissingMessage",
+    "RelatedMessageID": "2F1",
+    "RelatedRelatedMessageID": "CVC_Temp"
+  },
+  {
+    "DTCNumber": "D58083",
+    "DTCName": "FMCU_Status_0xC9 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "C9",
+    "RelatedRelatedMessageID": "FMCU_Status"
+  },
+  {
+    "DTCNumber": "D58183",
+    "DTCName": "CVC_HV_DrvSys_status_0xD9 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "D9",
+    "RelatedRelatedMessageID": "CVC_HV_DrvSys_status"
+  },
+  {
+    "DTCNumber": "D58283",
+    "DTCName": "WCBS_STATUS_0x20D node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "20D",
+    "RelatedRelatedMessageID": "WCBS_STATUS"
+  },
+  {
+    "DTCNumber": "D58383",
+    "DTCName": "Gateway_WCBS_Info_0x271 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "271",
+    "RelatedRelatedMessageID": "Gateway_WCBS_Info"
+  },
+  {
+    "DTCNumber": "D58483",
+    "DTCName": "EPS_SAS_Sensor_0x17E node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "17E",
+    "RelatedRelatedMessageID": "EPS_SAS_Sensor"
+  },
+  {
+    "DTCNumber": "D58583",
+    "DTCName": "WCBS_ESC_Status_0x132 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "132",
+    "RelatedRelatedMessageID": "WCBS_ESC_Status"
+  },
+  {
+    "DTCNumber": "D58683",
+    "DTCName": "FCAM_AEB_Status_0x32E node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "32E",
+    "RelatedRelatedMessageID": "FCAM_AEB_Status"
+  },
+  {
+    "DTCNumber": "D58883",
+    "DTCName": "Gateway_FCAM_AEB_FCW_0x21D node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "21D",
+    "RelatedRelatedMessageID": "Gateway_FCAM_AEB_FCW"
+  },
+  {
+    "DTCNumber": "D58983",
+    "DTCName": "FCAM_CMP_ACC_0x353 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "353",
+    "RelatedRelatedMessageID": "FCAM_CMP_ACC"
+  },
+  {
+    "DTCNumber": "D58A83",
+    "DTCName": "FCAM_HWA_ALC_0x206 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "206",
+    "RelatedRelatedMessageID": "FCAM_HWA_ALC"
+  },
+  {
+    "DTCNumber": "D58B83",
+    "DTCName": "CVC_CLAMP_STAT_0x112 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "112",
+    "RelatedRelatedMessageID": "CVC_CLAMP_STAT"
+  },
+  {
+    "DTCNumber": "D58C83",
+    "DTCName": "CVC_ODO_0x20C node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "20C",
+    "RelatedRelatedMessageID": "CVC_ODO"
+  },
+  {
+    "DTCNumber": "D58D83",
+    "DTCName": "FCAM_LDW_LKA_ELK_0x127 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "127",
+    "RelatedRelatedMessageID": "FCAM_LDW_LKA_ELK"
+  },
+  {
+    "DTCNumber": "D58F83",
+    "DTCName": "BCM_VOLTAGE_0x10A node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "10A",
+    "RelatedRelatedMessageID": "BCM_VOLTAGE"
+  },
+  {
+    "DTCNumber": "D59083",
+    "DTCName": "CVC_DIGIT_SPEED_0x40D node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "40D",
+    "RelatedRelatedMessageID": "CVC_DIGIT_SPEED"
+  },
+  {
+    "DTCNumber": "D59183",
+    "DTCName": "CVC_SEAT_POSITION_0x41C node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "41C",
+    "RelatedRelatedMessageID": "CVC_SEAT_POSITION"
+  },
+  {
+    "DTCNumber": "D59283",
+    "DTCName": "OCS_PasSts_0x41F node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "41F",
+    "RelatedRelatedMessageID": "OCS_PasSts"
+  },
+  {
+    "DTCNumber": "D59583",
+    "DTCName": "CVC_Pedals_0x269 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "269",
+    "RelatedRelatedMessageID": "CVC_Pedals"
+  },
+  {
+    "DTCNumber": "D59683",
+    "DTCName": "BCMFL_Temperature_0xA9 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "A9",
+    "RelatedRelatedMessageID": "BCMFL_Temperature"
+  }
+          ,
+  {
+    "DTCNumber": "D59983",
+    "DTCName": "CVC_Status_0x166 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "166",
+    "RelatedRelatedMessageID": "BCMFL_Temperature"
+  }
+          ,
+  {
+    "DTCNumber": "D59883",
+    "DTCName": "TBOX_eCall_0x412 node CRC error",
+    "DTCType": "CRCError",
+    "RelatedMessageID": "412",
+    "RelatedRelatedMessageID": "BCMFL_Temperature"
+  }
+]
+    ]
+}

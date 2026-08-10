@@ -1,0 +1,695 @@
+CAN0:
+  projectName: "VF6.PY"
+  baudRate: 500
+  sndPhysicalID: "0x688"
+  rcvPhysicalID: "0x608"
+  sndFunctionID: "0x6ff"
+  rcvBroadcastID: ["0x85", "0x381", "0x488"]
+  saLibPath: "F:\\Python3.10\\VF6_UDS\\VF65ZLGDll.dll"
+  rcvNodeID:
+    - data: ["0x0A", "0x00", "0x00", "0x00", "0x00", "0x00", "0x00", "0x00"]
+      period: 20
+      nodeID: "0x20D"
+    - data: ["0x2D", "0x00", "0x00", "0x00", "0x02", "0x00", "0x00", "0x00"]
+      period: 100
+      nodeID: "0x112"
+    - data: ["0x17", "0x00", "0x00", "0x00", "0x00", "0x07", "0xD0", "0x00"]
+      period: 120
+      nodeID: "0x40D"
+  UDS:
+    PositiveResponse:
+      Enable: 1
+      TestCase:
+        - id: "Diag_ctrlDTC_01"
+          description: "ControlDTCSetting$85-Application Supported-0x03-Extended-on"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_ctrlDTC_02"
+          description: "ControlDTCSetting$85-Application Supported-0x03-Extended-off"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_03"
+          description: "ControlDTCSetting$85-Application Supported-0x03-Extended-suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_ctrlDTC_04"
+          description: "ControlDTCSetting$85-Application Supported-0x03-Extended-suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x82", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x02"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_05"
+          description: "ControlDTCSetting$85-Bootloader Supported-0x02-Programming-on"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_ctrlDTC_06"
+          description: "ControlDTCSetting$85-Bootloader Supported-0x02-Programming-off"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_07"
+          description: "ControlDTCSetting$85-Bootloader Supported-0x02-Programming-suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_ctrlDTC_08"
+          description: "ControlDTCSetting$85-Bootloader Supported-0x02-Programming-suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x82", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x02"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_09"
+          description: "ControlDTCSetting$85-Application Supported-0x03-Extended-on"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_ctrlDTC_10"
+          description: "ControlDTCSetting$85-Application Supported-0x03-Extended-off"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_11"
+          description: "ControlDTCSetting$85-Application Supported-0x03-Extended-suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_ctrlDTC_12"
+          description: "ControlDTCSetting$85-Application Supported-0x03-Extended-suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x82", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x02"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_13"
+          description: "ControlDTCSetting$85-Bootloader Supported-0x02-Programming-on"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_ctrlDTC_14"
+          description: "ControlDTCSetting$85-Bootloader Supported-0x02-Programming-off"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_15"
+          description: "ControlDTCSetting$85-Bootloader Supported-0x02-Programming-suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_ctrlDTC_16"
+          description: "ControlDTCSetting$85-Bootloader Supported-0x02-Programming-suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x82", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0xC5", "0x02"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+
+    NegativeResponse:
+      Enable: 0
+      TestCase:
+        - id: "Diag_ctrlDTC_neg_01"
+          description: "ControlDTCSetting$85-NegativeResponsePhysicalID-NRC12"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x03"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x04"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x05"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x06"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x07"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x08"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x09"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0A"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0B"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0C"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0D"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0E"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0F"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x10"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x11"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x12"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x13"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x14"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x15"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x16"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x17"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x18"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x80"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x83"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x84"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x85"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x86"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x87"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_neg_02"
+          description: "ControlDTCSetting$85-NegativeResponsePhysicalID-NRC13"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                delayTime: 80
+              - send: ["0x01", "0x85"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x85", "0x01", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x04", "0x85", "0x01", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x05", "0x85", "0x01", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x06", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x07", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x08", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x85", "0x02", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x04", "0x85", "0x02", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x05", "0x85", "0x02", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x06", "0x85", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["0x07", "0x85", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+              - send: ["10", "08", "85", "02", "00", "00", "00", "00", "00", "00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_neg_03"
+          description: "ControlDTCSetting$85-NegativeResponsePhysicalID-NRC7F"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x7f"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x7f"]
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_neg_04"
+          description: "ControlDTCSetting$85-NegativeResponseFunctionID-NRC12"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x03"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x04"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x05"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x06"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x07"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x08"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x09"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0A"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0B"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0C"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0D"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0E"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x0F"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x10"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x11"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x12"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x13"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x14"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x15"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x16"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x17"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x18"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x80"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x83"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x84"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x85"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x86"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x87"]
+                recv: ["0x03", "0x7F", "0x85", "0x12"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_neg_05"
+          description: "ControlDTCSetting$85-NegativeResponseFunctionID-NRC13"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                delayTime: 80
+              - send: ["0x01", "0x85"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x03", "0x85", "0x01", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x04", "0x85", "0x01", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x05", "0x85", "0x01", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x06", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x07", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+
+        - id: "Diag_ctrlDTC_neg_06"
+          description: "ControlDTCSetting$85-NegativeResponseFunctionID-NRC7F"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x7f"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x85", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x85", "0x7f"]
+                isSendNoResponse: 1
+                isPhysicalID: 0
+                delayTime: 80

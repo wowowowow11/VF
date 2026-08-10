@@ -1,0 +1,181 @@
+{
+    "MessagesList": [
+        [
+            {
+                "MessageID": "C9",
+                "MessageLength": 8,
+                "data": "0x7C, 0x00, 0x0F, 0xA0, 0x4E, 0x20, 0x00, 0x00",
+                "CycleTime": 10,
+                "MessageName": "FMCU_Status"
+            },
+            {
+                "MessageID": "D9",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 40,
+                "MessageName": "CVC_HV_DrvSys_status"
+            },
+            {
+                "MessageID": "20D",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 20,
+                "MessageName": "WCBS_STATUS"
+            },
+            {
+                "MessageID": "271",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 20,
+                "MessageName": "Gateway_WCBS_Info"
+            },
+            {
+                "MessageID": "17E",
+                "MessageLength": 8,
+                "data": "0x83, 0x00, 0x20, 0x00, 0x00, 0x80, 0x05, 0x00",
+                "CycleTime": 10,
+                "MessageName": "EPS_SAS_Sensor"
+            },
+            {
+                "MessageID": "132",
+                "MessageLength": 8,
+                "data": "0x9D, 0x00, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 20,
+                "MessageName": "WCBS_ESC_Status"
+            },
+            {
+                "MessageID": "32E",
+                "MessageLength": 6,
+                "data": "0x1E, 0x00, 0x7E, 0x00, 0x00, 0x00",
+                "CycleTime": 20,
+                "MessageName": "FCAM_AEB_Status"
+            },
+            {
+                "MessageID": "484",
+                "MessageLength": 8,
+                "data": "0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 50,
+                "MessageName": "TPMS_TirePressAlarm"
+            },
+            {
+                "MessageID": "21D",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 50,
+                "MessageName": "Gateway_FCAM_AEB_FCW"
+            },
+            {
+                "MessageID": "353",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 50,
+                "MessageName": "FCAM_CMP_ACC"
+            },
+            {
+                "MessageID": "206",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 50,
+                "MessageName": "FCAM_HWA_ALC"
+            },
+            {
+                "MessageID": "112",
+                "MessageLength": 8,
+                "data": "0x2D, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00",
+                "CycleTime": 100,
+                "MessageName": "CVC_CLAMP_STAT"
+            },
+            {
+                "MessageID": "20C",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 100,
+                "MessageName": "CVC_ODO"
+            },
+            {
+                "MessageID": "127",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 80,
+                "MessageName": "FCAM_LDW_LKA_ELK"
+            },
+            {
+                "MessageID": "412",
+                "MessageLength": 8,
+                "data": "0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 100,
+                "MessageName": "TBOX_eCall_system_status"
+            },
+            {
+                "MessageID": "10A",
+                "MessageLength": 8,
+                "data": "0xF5, 0x00, 0xD0, 0x10, 0x28, 0x00, 0xC0, 0x00",
+                "CycleTime": 100,
+                "MessageName": "BCM_VOLTAGE"
+            },
+            {
+                "MessageID": "40D",
+                "MessageLength": 8,
+                "data": "0x17, 0x00, 0x00, 0x00, 0x00, 0x07, 0xD0, 0x00",
+                "CycleTime": 120,
+                "MessageName": "CVC_DIGIT_SPEED"
+            },
+            {
+                "MessageID": "41C",
+                "MessageLength": 3,
+                "data": "0xBE, 0x00, 0x00",
+                "CycleTime": 1000,
+                "MessageName": "CVC_SEAT_POSITION"
+            },
+            {
+                "MessageID": "41F",
+                "MessageLength": 3,
+                "data": "0xBE, 0x00, 0x00",
+                "CycleTime": 500,
+                "MessageName": "OCS_PasSts"
+            },
+            {
+                "MessageID": "2F8",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 1000,
+                "MessageName": "Vehicle_Date_Time"
+            },
+            {
+                "MessageID": "383",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 1000,
+                "MessageName": "CVC_VEHICLE_IDENT_NUMBER"
+            },
+            {
+                "MessageID": "A9",
+                "MessageLength": 8,
+                "data": "0xFF, 0x00, 0x50, 0x00, 0x50, 0x00, 0x00, 0x00",
+                "CycleTime": 100,
+                "MessageName": "BCMFL_Temperature"
+            },
+            {
+                "MessageID": "2EA",
+                "MessageLength": 8,
+                "data": "0x50, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 200,
+                "MessageName": "CVC_Temp"
+            },
+            {
+                "MessageID": "2F1",
+                "MessageLength": 1,
+                "data": "0x00",
+                "CycleTime": 100,
+                "MessageName": "MHU_IC_STAT_AIRBAG"
+            },
+            {
+                "MessageID": "166",
+                "MessageLength": 8,
+                "data": "0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00",
+                "CycleTime": 20,
+                "MessageName": "CVC_Status"
+            }
+        ]
+    ]
+}

@@ -1,0 +1,2543 @@
+CAN0:
+  projectName: "VF6.PY"
+  baudRate: 500
+  sndPhysicalID: "0x688"
+  rcvPhysicalID: "0x608"
+  sndFunctionID: "0x6ff"
+  rcvBroadcastID: ["0x85", "0x381", "0x488"]
+  saLibPath: "F:\\Python3.10\\VF6_UDS\\VF65ZLGDll.dll"
+  rcvNodeID:
+    - data: [ "0x0A", "0x00", "0x00", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+      period: 20
+      nodeID: "0x20D"
+    - data: [ "0x2D", "0x00", "0x00", "0x00", "0x02", "0x00", "0x00", "0x00" ]
+      period: 100
+      nodeID: "0x112"
+    - data: [ "0x17", "0x00", "0x00", "0x00", "0x00", "0x07", "0xD0", "0x00" ]
+      period: 120
+      nodeID: "0x40D"
+  UDS:
+    PositiveResponse:
+      Enable: 1
+      TestCase:
+        - id: "Diag_commCtrl_001"
+          description: "CommunicationControl$28-03-Enable Rx And-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_002"
+          description: "CommunicationControl$28-03-Enable Rx And-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_003"
+          description: "CommunicationControl$28-03-Enable Rx And-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_004"
+          description: "CommunicationControl$28-03-Enable Rx And Disable Tx-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_005"
+          description: "CommunicationControl$28-03-Enable Rx And Disable Tx-Network Management Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "27", "02", "00", "00", "00", "00", "00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_006"
+          description: "CommunicationControl$28-03-Enable Rx And Disable Tx-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_007"
+          description: "CommunicationControl$28-03-Disable Rx And Tx-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_008"
+          description: "CommunicationControl$28-03-Disable Rx And Tx-Network Management Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_009"
+          description: "CommunicationControl$28-03-Disable Rx And Tx-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_010"
+          description: "CommunicationControl$28-03-suppress positive response-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_011"
+          description: "CommunicationControl$28-03-suppress positive response-Network Management Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_012"
+          description: "CommunicationControl$28-03-suppress positive response-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_013"
+          description: "CommunicationControl$28-03-suppress positive response-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_014"
+          description: "CommunicationControl$28-03-suppress positive response-Network Management Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_015"
+          description: "CommunicationControl$28-03-suppress positive response-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_016"
+          description: "CommunicationControl$28-03-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_017"
+          description: "CommunicationControl$28-03-suppress positive response-Network Management Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_018"
+          description: "CommunicationControl$28--03-suppress positive response-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_019"
+          description: "CommunicationControl$28-03-Functional-Enable Rx And-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_020"
+          description: "CommunicationControl$28-03-Functional-Enable Rx And-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_021"
+          description: "CommunicationControl$28-03-Functional-Enable Rx And-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_022"
+          description: "CommunicationControl$28-03-Functional-Enable Rx And Disable Tx-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_023"
+          description: "CommunicationControl$28-03-Functional-Enable Rx And Disable Tx-Network Management Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_024"
+          description: "CommunicationControl$28-03-Functional-Enable Rx And Disable Tx-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_025"
+          description: "CommunicationControl$28-03-Functional-Disable Rx And Tx-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_026"
+          description: "CommunicationControl$28-03-Functional-Disable Rx And Tx-Network Management Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_027"
+          description: "CommunicationControl$28-03-Functional-Disable Rx And Tx-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_028"
+          description: "CommunicationControl$28-03-Functional-suppress positive response-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_029"
+          description: "CommunicationControl$28-03-Functional-suppress positive response-Network Management Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_030"
+          description: "CommunicationControl$28-03-Functional-suppress positive response-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_031"
+          description: "CommunicationControl$28-03-Functional-suppress positive response-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_032"
+          description: "CommunicationControl$28-03-Functional-suppress positive response-Network Management Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_033"
+          description: "CommunicationControl$28-03-Functional-suppress positive response-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_034"
+          description: "CommunicationControl$28-03-Functional-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_035"
+          description: "CommunicationControl$28-03-Functional-suppress positive response-Network Management Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+
+        - id: "Diag_commCtrl_036"
+          description: "CommunicationControl$28--03-suppress positive response-Network Management Communication Messages and Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+
+    Bootloader Supported:
+      Enable: 0
+      TestCase:
+        - id: "Diag_commCtrl_037"
+          description: "CommunicationControl$28-03-Enable Rx And-Normal Communication Messages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_038"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NetworkManagementCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_039"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_040"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_041"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NetworkManagementCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_042"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_043"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_044"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NetworkManagementCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_045"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_046"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NormalCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_047"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NetworkManagementCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_048"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_049"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NormalCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_050"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NetworkManagementCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_051"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_052"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NormalCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_053"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NetworkManagementCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_054"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessagess-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_055"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_056"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NetworkManagementCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_057"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_058"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_059"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NetworkManagementCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_060"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_061"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_062"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NetworkManagementCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_063"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessages"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_064"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NormalCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_065"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NetworkManagementCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_066"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x80", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x00"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_067"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NormalCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_068"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NetworkManagementCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_069"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-EnableRxAndDisableTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x81", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x01"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_070"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NormalCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_071"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NetworkManagementCommunicationMessages-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 50
+
+        - id: "Diag_commCtrl_072"
+          description: "CommunicationControl$28-PositiveResponseFunctionID-DisableRxAndTx-NetworkManagementCommunicationMessagesAndNormalCommunicationMessagess-suppressPosRspMsg"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x83", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x68", "0x03"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 5500
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 50
+
+    NegativeResponse:
+      Enable: 1
+      TestCase:
+        - id: "Diag_commCtrl_neg_01"
+          description: "CommunicationControl$28-NegativeResponsePhysicalID-NRC12"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x02", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x28", "0x12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x04", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x28", "0x12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x05", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x28", "0x12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x06", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x28", "0x12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x07", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x28", "0x12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x08", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x09", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x0A", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x0B", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x0C", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x0D", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "12"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0xFE", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "12"]
+                delayTime: 50
+
+        - id: "Diag_commCtrl_neg_02"
+          description: "CommunicationControl$28-NegativeResponsePhysicalID-NRC31"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x04", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x05", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x06", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x07", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x08", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x09", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x0A", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x0B", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x0C", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0x0D", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x00", "0xFE", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x04", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x05", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x06", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x07", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x08", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x09", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x0A", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x0B", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x0C", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0x0D", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x01", "0xFE", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x04", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x05", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x06", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x07", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x08", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x09", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x0A", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x0B", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x0C", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0x0D", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+              - send: ["0x03", "0x28", "0x03", "0xFE", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "31"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 50
+
+        - id: "Diag_commCtrl_neg_03"
+          description: "CommunicationControl$28-NegativeResponsePhysicalID-NRC13"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                delayTime: 50
+              - send: ["0x01", "0x28", "0x00", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x02", "0x28", "0x00", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x04", "0x28", "0x00", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x05", "0x28", "0x00", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x06", "0x28", "0x00", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x07", "0x28", "0x00", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["10", "08", "28", "00", "01", "00", "00", "00", "00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x01", "0x28", "0x00", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x02", "0x28", "0x00", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x04", "0x28", "0x00", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x05", "0x28", "0x00", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x06", "0x28", "0x00", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x07", "0x28", "0x00", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["10", "08", "28", "00", "02", "00", "00", "00", "00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x01", "0x28", "0x00", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x02", "0x28", "0x00", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x04", "0x28", "0x00", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x05", "0x28", "0x00", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x06", "0x28", "0x00", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x07", "0x28", "0x00", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x01", "0x28", "0x01", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x02", "0x28", "0x01", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x04", "0x28", "0x01", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x05", "0x28", "0x01", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x06", "0x28", "0x01", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x07", "0x28", "0x01", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x01", "0x28", "0x01", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x02", "0x28", "0x01", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x04", "0x28", "0x01", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x05", "0x28", "0x01", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x06", "0x28", "0x01", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x07", "0x28", "0x01", "0x02", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x01", "0x28", "0x01", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x02", "0x28", "0x01", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x04", "0x28", "0x01", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x05", "0x28", "0x01", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x06", "0x28", "0x01", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50
+              - send: ["0x07", "0x28", "0x01", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "28", "13"]
+                delayTime: 50

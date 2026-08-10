@@ -1,0 +1,1 @@
+有刷写：root@ubuntu:/data/publish/ACUUnitTest/configuration/QR101R# python3 QR101R_LINUX_PRO.py -y "ODS_yaml_test/INDIA (FULL)_suite_2nd_row_dri.yaml"

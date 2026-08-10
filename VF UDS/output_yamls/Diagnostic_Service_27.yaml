@@ -1,0 +1,384 @@
+CAN0:
+  projectName: "VF6.PY"
+  baudRate: 500
+  sndPhysicalID: "0x688"
+  rcvPhysicalID: "0x608"
+  sndFunctionID: "0x6ff"
+  rcvBroadcastID: ["0x85", "0x381", "0x488"]
+  saLibPath: "F:\\Python3.10\\VF6_UDS\\VF65ZLGDll.dll"
+  rcvNodeID:
+    - data: [ "0x0A", "0x00", "0x00", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+      period: 20
+      nodeID: "0x20D"
+    - data: [ "0x2D", "0x00", "0x00", "0x00", "0x02", "0x00", "0x00", "0x00" ]
+      period: 100
+      nodeID: "0x112"
+    - data: [ "0x17", "0x00", "0x00", "0x00", "0x00", "0x07", "0xD0", "0x00" ]
+      period: 120
+      nodeID: "0x40D"
+  UDS:
+    PositiveResponse:
+      Enable: 1
+      TestCase:
+        - id: "Diag_security_01"
+          description: "ServiceSecurityAccess$27-03-Request Seed (Security level 1: After Sales)"
+          testInstructions:
+            data:
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x14", "0x2E", "0xF1", "0x90", "0x00", "0x01", "0x02", "0x03"]
+                recv: ["0x03", "0x6E", "0xF1", "0x90"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_security_02"
+          description: "ServiceSecurityAccess$27-03-Request Seed (Security level 2: Manufacturing)"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x04", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x04"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x14", "0x2E", "0xF1", "0x90", "0x00", "0x01", "0x02", "0x03"]
+                recv: ["0x03", "0x6E", "0xF1", "0x90"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_security_03"
+          description: "ServiceSecurityAccess$27-03-Request Seed (Security level 3: ECU- Coding)"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x41", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x05", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x05"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x06", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x06"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_security_04"
+          description: "ServiceSecurityAccess$27-02-Request Seed (Security level 1: After Sales)"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_security_05"
+          description: "ServiceSecurityAccess$27-02-Request Seed (Security level 4: ECU-Programming (Flash))"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x07", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x07"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x08", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x02", "0x67", "0x08"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+    NegativeResponse:
+      Enable: 1
+      TestCase:
+        - id: "Diag_security_neg_01"
+          description: "ServiceSecurityAccess$27-NRC7F"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x7F"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x7F"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x7F"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x04", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x7F"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_security_neg_02"
+          description: "ServiceSecurityAccess$27-NRC13"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x04", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x05", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x06", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x07", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x13", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x14", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x15", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x16", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x17", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x03", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x04", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x05", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x06", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x07", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x13", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x14", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x15", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x16", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x17", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x11", "27", "02", "00", "00", "00", "00", "00"]
+                recv: ["0x03", "0x7F", "27", "13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x13", "27", "02", "00", "00", "00", "00", "00"]
+                recv: ["0x03", "0x7F", "27", "13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x01"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "27", "02", "00", "00", "00", "00", "00"]
+                recv: ["0x02", "0x67", "0x02"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x11", "27", "04", "00", "00", "00", "00", "00"]
+                recv: ["0x03", "0x7F", "27", "13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x13", "27", "04", "00", "00", "00", "00", "00"]
+                recv: ["0x03", "0x7F", "27", "13"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x02", "0x27", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x10", "0x12", "0x67", "0x03"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "27", "04", "00", "00", "00", "00", "00"]
+                recv: ["0x02", "0x67", "0x04"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+
+        - id: "Diag_security_neg_03"
+          description: "ServiceSecurityAccess$27-NRC24"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x24"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50
+              - send: ["0x10", "0x12", "0x27", "0x04", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x27", "0x24"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 50

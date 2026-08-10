@@ -1,0 +1,15 @@
+python QR101R_LINUX_PRO.py -y "ODS_yaml_test/INDIA_TOP/INDIA (TOP)_suite_2nd_row_dri.yaml"
+AIN4 suite_passenger.yaml
+AIN6 suite_2nd_row_dri.yaml
+AIN8 suite_2nd_row_mid.yaml:2500出现142800-09、1300出现142800-09。
+AIN9 suite_2nd_row_pas.yaml:2500出现142900-09、1300出现142900-09。
+INDIA(FULL):Seat_Occupancy_Passenger应该不支持
+
+try:
+    lib = cdll.LoadLibrary("libusbcanfd.so")
+except OSError:
+    try:
+        lib = cdll.LoadLibrary("./libusbcanfd.so")
+    except Exception as e:
+        print(f"无法加载 libusbcanfd.so: {e}")
+        sys.exit(1)

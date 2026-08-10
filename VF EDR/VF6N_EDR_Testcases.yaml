@@ -1,0 +1,1067 @@
+test_cases:
+  - name: "04Engine throttle, percent full(WCBS_VehicleSpeed：0 KM/H ---> 50 KM/H)"
+    description: "验证当车辆指示车速从 0 加速至 50 KM/H 时，VF6N_EDR 记录的车速数据是否准确为 50.0"
+    node_overrides:
+      "20D": "62 00 1B C0 00 00 00 00"
+    expected_edr:
+      signal_name: "04Speed_vehicle indicated"
+      target_value: 50.0
+      tolerance: 0.1
+
+  - name: "05Engine throttle, percent full(WCBS_VehicleSpeed：0 KM/H ---> 10 KM/H)"
+    description: "验证当车辆指示车速从 0 加速至 10 KM/H 时，VF6N_EDR 记录的车速数据是否准确为 10.0"
+    node_overrides:
+      "20D": "1D 00 05 88 00 00 00 00"
+    expected_edr:
+      signal_name: "04Speed_vehicle indicated"
+      target_value: 10.0
+      tolerance: 0.1
+
+  - name: "05Engine throttle, percent full(CVC_ACPD_Percent:0 ---> 60 )"
+    description: "验证当加速踏板开度(CVC_ACPD_Percent)设置为 60% 时，VF6N_EDR 记录的油门开度数据是否准确为 60.0"
+    node_overrides:
+      "D9": "39 00 3C 00 00 00 00 00"
+    expected_edr:
+      signal_name: "05Engine throttle_percent full (accelerator pedal percent full)"
+      target_value: 60.0
+      tolerance: 0.1
+
+  - name: "05Engine throttle, percent full(CVC_ACPD_Percent:0 ---> 255 )"
+    description: "验证当加速踏板开度信号达到上限值 255 时，VF6N_EDR 记录的油门开度数据是否正确处理为 255"
+    node_overrides:
+      "D9": "90 00 FF F0 00 00 00 00"
+    expected_edr:
+      signal_name: "05Engine throttle_percent full (accelerator pedal percent full)"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "06Service brake, on/off(0x0: BLS not pressed )"
+    description: "验证当制动灯开关(BLS)未按下(状态0x0)时，VF6N_EDR 记录的行车制动状态是否为 0 (Off)"
+    node_overrides:
+      "112": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "06Service brake_on/off"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "06Service brake, on/off(0x1: BLS pressed)"
+    description: "验证当制动灯开关(BLS)被按下(状态0x1)时，VF6N_EDR 记录的行车制动状态是否为 1 (On)"
+    node_overrides:
+      "112": "F3 40 00 00 02 00 00 00"
+    expected_edr:
+      signal_name: "06Service brake_on/off"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "06Service brake, on/off(0x2: reserved)"
+    description: "验证当制动灯开关信号为保留值(0x2)时，VF6N_EDR 记录的行车制动状态是否正确置为 255 (无效/不可用)"
+    node_overrides:
+      "112": "8C 80 00 00 02 00 00 00"
+    expected_edr:
+      signal_name: "06Service brake_on/off"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "06Service brake, on/off(0x3: signal invalid)"
+    description: "验证当制动灯开关信号无效(0x3)时，VF6N_EDR 记录的行车制动状态是否正确置为 255 (无效/不可用)"
+    node_overrides:
+      "112": "52 C0 00 00 02 00 00 00"
+    expected_edr:
+      signal_name: "06Service brake_on/off"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "10Air bag warning lamp(0x0: MHU_STAT_AirbagWarnLamp)"
+    description: "验证当安全气囊警告灯状态为 0x0 (正常/熄灭) 时，VF6N_EDR 记录的安全气囊警告灯状态是否为 0"
+    node_overrides:
+      "2F1": "00"
+    expected_edr:
+      signal_name: "10Air bag warning lamp"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "10Air bag warning lamp(0x1:MHU_STAT_AirbagWarnLamp)"
+    description: "验证当安全气囊警告灯状态为 0x1 (点亮) 时，VF6N_EDR 记录的安全气囊警告灯状态是否为 1"
+    node_overrides:
+      "2F1": "01"
+    expected_edr:
+      signal_name: "10Air bag warning lamp"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "10Air bag warning lamp(0x2:MHU_STAT_AirbagWarnLamp)"
+    description: "验证当安全气囊警告灯状态为 0x2 (预留状态) 时，VF6N_EDR 记录的安全气囊警告灯状态是否为 2"
+    node_overrides:
+      "2F1": "02"
+    expected_edr:
+      signal_name: "10Air bag warning lamp"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "10Air bag warning lamp(0x3: MHU_STAT_AirbagWarnLamp)"
+    description: "验证当安全气囊警告灯信号无效(0x3)时，VF6N_EDR 记录的安全气囊警告灯状态是否正确置为 255 (无效)"
+    node_overrides:
+      "2F1": "03"
+    expected_edr:
+      signal_name: "10Air bag warning lamp"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "23Engine rpm, Front EDS(FMCU_MotorSpd:00,0X0:FMCU_MotorSpdValid)"
+    description: "验证当电机转速为 0 且转速信号无效(0x0)时，VF6N_EDR 记录的前电机转速是否置为 -12767 (无效值)"
+    node_overrides:
+      "C9": "7C 00 0F A0 4E 20 00 00"
+    expected_edr:
+      signal_name: "23Engine rpm_front EDS"
+      target_value: -12767
+      tolerance: 0.1
+
+  - name: "23Engine rpm, Front EDS(FMCU_MotorSpd:2222,0X0:FMCU_MotorSpdValid)"
+    description: "验证当电机转速为 2222 但转速信号无效(0x0)时，VF6N_EDR 记录的前电机转速是否置为 255 (信号不可信)"
+    node_overrides:
+      "C9": "85 00 0F A0 A4 EE 00 00"
+    expected_edr:
+      signal_name: "23Engine rpm_front EDS"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "23Engine rpm, Front EDS(FMCU_MotorSpd:100,0X1:FMCU_MotorSpdValid)"
+    description: "验证当电机转速为 100 且转速信号有效(0x1)时，VF6N_EDR 记录的前电机转速是否置为 255 (特定映射或溢出处理)"
+    node_overrides:
+      "C9": "60 00 0F A0 4E 84 40 00"
+    expected_edr:
+      signal_name: "23Engine rpm_front EDS"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "26Anti-lock braking system activity(ABSActive:0x0,ABSFailed:0x0)"
+    description: "验证当 ABS 未激活(0x0)且无故障(0x0)时，VF6N_EDR 记录的 ABS 活动状态是否为 0 (未激活)"
+    node_overrides:
+      "20D": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "26Anti-lock braking system activity"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "26Anti-lock braking system activity(ABSActive:0x1,ABSFailed:0x0)"
+    description: "验证当 ABS 正在激活(0x1)且无故障(0x0)时，VF6N_EDR 记录的 ABS 活动状态是否为 1 (激活中)"
+    node_overrides:
+      "20D": "AB 80 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "26Anti-lock braking system activity"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "26Anti-lock braking system activity(ABSActive:0x1,ABSFailed:0x1)"
+    description: "验证当 ABS 正在激活(0x1)但存在故障(0x1)时，VF6N_EDR 记录的 ABS 活动状态是否为 2 (故障/降级)"
+    node_overrides:
+      "20D": "75 C0 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "26Anti-lock braking system activity"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "26Anti-lock braking system activity(ABSActive:0x0,ABSFailed:0x1)"
+    description: "验证当 ABS 未激活(0x0)但存在故障(0x1)时，VF6N_EDR 记录的 ABS 活动状态是否为 2 (故障)"
+    node_overrides:
+      "20D": "D4 40 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "26Anti-lock braking system activity"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "27Stability control([ STAT_DSC = 0x2] => 0x00: Off)"
+    description: "验证当 DSC(动态稳定控制)状态为 0x2 时，VF6N_EDR 记录的稳定性控制状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "271": "0F 00 04 00 00 00 00 00"
+    expected_edr:
+      signal_name: "27Stability control"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "27Stability control([ STAT_DSC = 0x0] AND[ WCBSActive = 0x0] => 0x01: On (Active))"
+    description: "验证当 DSC 状态为 0x0 且 WCBS 未激活时，VF6N_EDR 记录的稳定性控制状态是否为 1 (On/开启待命)"
+    node_overrides:
+      "271": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "27Stability control"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "27Stability control([ STAT_DSC = 0x1] AND[ WCBSActive = 0x0] => 0x01: On (Active))"
+    description: "验证当 DSC 状态为 0x1 且 WCBS 未激活时，VF6N_EDR 记录的稳定性控制状态是否为 1 (On/开启待命)"
+    node_overrides:
+      "271": "86 00 02 00 00 00 00 00"
+    expected_edr:
+      signal_name: "27Stability control"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "27Stability control([ STAT_DSC = 0x1] AND[ WCBSActive = 0x1] => 0x02: Engaged (Intervening))"
+    description: "验证当 DSC 状态为 0x1 且 WCBS 正在激活时，VF6N_EDR 记录的稳定性控制状态是否为 2 (Engaged/介入中)"
+    node_overrides:
+      "271": "C0 00 03 00 00 00 00 00"
+    expected_edr:
+      signal_name: "27Stability control"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "27Stability control([ STAT_DSC = 0x0] AND[ WCBSActive = 0x1] => 0x02: Engaged (Intervening))"
+    description: "验证当 DSC 状态为 0x0 且 WCBS 正在激活时，VF6N_EDR 记录的稳定性控制状态是否为 2 (Engaged/介入中)"
+    node_overrides:
+      "271": "4C 00 01 00 00 00 00 00"
+    expected_edr:
+      signal_name: "27Stability control"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "27Stability control([ STAT_DSC = 0x3] => 0x03: Faulted)"
+    description: "验证当 DSC 状态为 0x3 时，VF6N_EDR 记录的稳定性控制状态是否为 3 (Faulted/故障)"
+    node_overrides:
+      "271": "83 00 06 00 00 00 00 00"
+    expected_edr:
+      signal_name: "27Stability control"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "27Stability control([WCBS_IBS_Sys_Fault_Sts = 0x1] => 0x03: Faulted)"
+    description: "验证当 WCBS 系统存在故障(0x1)时，VF6N_EDR 记录的稳定性控制状态是否为 3 (Faulted/故障)"
+    node_overrides:
+      "271": "AB 80 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "27Stability control"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "28Steering input(SAS_SteerWheelAngleValid is 0x0 AND SAS_SteerWheelAngle is between 0x0000 and 0xFFFF-> Received data stored)"
+    description: "验证当方向盘转角信号无效(0x0)时，VF6N_EDR 记录的转向输入数据是否置为 -0.003 (无效/错误标识值)"
+    node_overrides:
+      "17E": "83 00 20 00 00 80 05 00"
+    expected_edr:
+      signal_name: "28Steering input"
+      target_value: -0.003
+      tolerance: 0.1
+
+  - name: "50Seat track position switch, foremost, status, driver(CVC_Seat_track_pos_Dri:0x0)"
+    description: "验证当驾驶员座椅滑轨位置状态为 0x0 时，VF6N_EDR 记录的驾驶员座椅最前位置开关状态是否为 0"
+    node_overrides:
+      "41C": "BE 00 00"
+    expected_edr:
+      signal_name: "50Seat track position switch_foremost_status_driver"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "50Seat track position switch, foremost, status, driver(CVC_Seat_track_pos_Dri:0x1)"
+    description: "验证当驾驶员座椅滑轨位置状态为 0x1 (最前) 时，VF6N_EDR 记录的驾驶员座椅最前位置开关状态是否为 1"
+    node_overrides:
+      "41C": "CA 00 04"
+    expected_edr:
+      signal_name: "50Seat track position switch_foremost_status_driver"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "50Seat track position switch, foremost, status, driver(CVC_Seat_track_pos_Dri:0x2)"
+    description: "验证当驾驶员座椅滑轨位置状态为 0x2 (保留) 时，VF6N_EDR 记录的驾驶员座椅最前位置开关状态是否置为 255 (无效)"
+    node_overrides:
+      "41C": "56 00 08"
+    expected_edr:
+      signal_name: "50Seat track position switch_foremost_status_driver"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "50Seat track position switch, foremost, status, driver(CVC_Seat_track_pos_Dri:0x3)"
+    description: "验证当驾驶员座椅滑轨位置信号无效(0x3)时，VF6N_EDR 记录的驾驶员座椅最前位置开关状态是否置为 255 (无效)"
+    node_overrides:
+      "41C": "22 00 0C"
+    expected_edr:
+      signal_name: "50Seat track position switch_foremost_status_driver"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "51Seat track position switch, foremost, status, right front passenger(CVC_Seat_track_pos_Pas:0x0)"
+    description: "验证当右前乘客座椅滑轨位置状态为 0x0 时，VF6N_EDR 记录的右前乘客座椅最前位置开关状态是否为 0"
+    node_overrides:
+      "41C": "BE 00 00"
+    expected_edr:
+      signal_name: "51Seat track position switch_foremost_status_right front passenger"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "51Seat track position switch, foremost, status, right front passenger(CVC_Seat_track_pos_Pas:0x1)"
+    description: "验证当右前乘客座椅滑轨位置状态为 0x1 (最前) 时，VF6N_EDR 记录的右前乘客座椅最前位置开关状态是否为 1"
+    node_overrides:
+      "41C": "73 00 10"
+    expected_edr:
+      signal_name: "51Seat track position switch_foremost_status_right front passenger"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "51Seat track position switch, foremost, status, right front passenger(CVC_Seat_track_pos_Pas:0x2)"
+    description: "验证当右前乘客座椅滑轨位置状态为 0x2 (保留) 时，VF6N_EDR 记录的右前乘客座椅最前位置开关状态是否置为 255 (无效)"
+    node_overrides:
+      "41C": "39 00 20"
+    expected_edr:
+      signal_name: "51Seat track position switch_foremost_status_right front passenger"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "51Seat track position switch, foremost, status, right front passenger(CVC_Seat_track_pos_Pas:0x3)"
+    description: "验证当右前乘客座椅滑轨位置信号无效(0x3)时，VF6N_EDR 记录的右前乘客座椅最前位置开关状态是否置为 255 (无效)"
+    node_overrides:
+      "41C": "F4 00 30"
+    expected_edr:
+      signal_name: "51Seat track position switch_foremost_status_right front passenger"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "52Occupant size classification, right front passenger(OCS_Passenger_class_stat:0x1)"
+    description: "验证当右前乘客乘员分类状态为 0x1 时，VF6N_EDR 记录的右前乘客体型分类状态是否为 0"
+    node_overrides:
+      "41F": "A3 00 01"
+    expected_edr:
+      signal_name: "52Occupant size classification_right front passenger"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "52Occupant size classification, right front passenger(OCS_Passenger_class_stat:0x2)"
+    description: "验证当右前乘客乘员分类状态为 0x2 时，VF6N_EDR 记录的右前乘客体型分类状态是否为 1"
+    node_overrides:
+      "41F": "84 00 02"
+    expected_edr:
+      signal_name: "52Occupant size classification_right front passenger"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "52Occupant size classification, right front passenger(OCS_Passenger_class_stat:0x3)"
+    description: "验证当右前乘客乘员分类状态为 0x3 (无效/故障) 时，VF6N_EDR 记录的右前乘客体型分类状态是否置为 255 (无效)"
+    node_overrides:
+      "41F": "99 00 03"
+    expected_edr:
+      signal_name: "52Occupant size classification_right front passenger"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "60Traction Control Status(ESC_TcsFlgFlt：0x0 AND ESC_TcsCtrlActv：0x0 AND STAT_DSC：0x0)"
+    description: "验证当 TCS 无故障、未激活且 DSC 状态为 0x0 时，VF6N_EDR 记录的牵引力控制状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "132": "9D 00 1E 00 00 00 00 00"
+      "271": "4C 00 01 00 00 00 00 00"
+    expected_edr:
+      signal_name: "60Traction Control Status"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "60Traction Control Status(ESC_TcsFlgFlt：0x0 AND ESC_TcsCtrlActv：0x0 AND STAT_DSC：0x2)"
+    description: "验证当 TCS 无故障、未激活且 DSC 状态为 0x2 时，VF6N_EDR 记录的牵引力控制状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "132": "9D 00 1E 00 00 00 00 00"
+      "271": "49 00 05 00 00 00 00 00"
+    expected_edr:
+      signal_name: "60Traction Control Status"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "60Traction Control Status(ESC_TcsFlgFlt：0x0 AND ESC_TcsCtrlActv：0x0 AND STAT_DSC：0x1)"
+    description: "验证当 TCS 无故障、未激活且 DSC 状态为 0x1 时，VF6N_EDR 记录的牵引力控制状态是否为 1 (On/开启待命)"
+    node_overrides:
+      "132": "9D 00 1E 00 00 00 00 00"
+      "271": "C0 00 03 00 00 00 00 00"
+    expected_edr:
+      signal_name: "60Traction Control Status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "60Traction Control Status(ESC_TcsFlgFlt：0x1 AND ESC_TcsCtrlActv：0x0 AND STAT_DSC：0x1)"
+    description: "验证当 TCS 存在故障(0x1)、未激活且 DSC 状态为 0x1 时，VF6N_EDR 记录的牵引力控制状态是否为 2 (Faulted/故障)"
+    node_overrides:
+      "132": "85 00 1E 00 00 10 00 00"
+      "271": "C0 00 03 00 00 00 00 00"
+    expected_edr:
+      signal_name: "60Traction Control Status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "60Traction Control Status(ESC_TcsFlgFlt：0x0 AND ESC_TcsCtrlActv：0x1 AND STAT_DSC：0x2)"
+    description: "验证当 TCS 无故障、正在激活(0x1)且 DSC 状态为 0x2 时，VF6N_EDR 记录的牵引力控制状态是否为 2 (Engaged/介入中)"
+    node_overrides:
+      "132": "85 00 1E 00 00 10 00 00"
+      "271": "0F 00 04 00 00 00 00 00"
+    expected_edr:
+      signal_name: "60Traction Control Status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "60Traction Control Status(ESC_TcsFlgFlt：0x0 AND ESC_TcsCtrlActv：0x1 AND STAT_DSC：0x3)"
+    description: "验证当 TCS 无故障、正在激活(0x1)且 DSC 状态为 0x3 时，VF6N_EDR 记录的牵引力控制状态是否置为 255 (无效/不可用)"
+    node_overrides:
+      "132": "85 00 1E 00 00 10 00 00"
+      "271": "C5 00 07 00 00 00 00 00"
+    expected_edr:
+      signal_name: "60Traction Control Status"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "60Traction Control Status(ESC_TcsFlgFlt：0x0 AND ESC_TcsCtrlActv：0x0 AND STAT_DSC：0x3)"
+    description: "验证当 TCS 无故障、未激活且 DSC 状态为 0x3 (故障) 时，VF6N_EDR 记录的牵引力控制状态是否置为 255 (无效/不可用)"
+    node_overrides:
+      "132": "9D 00 1E 00 00 00 00 00"
+      "271": "C5 00 07 00 00 00 00 00"
+    expected_edr:
+      signal_name: "60Traction Control Status"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "60Traction Control Status(ESC_TcsFlgFlt：0x0 AND ESC_TcsCtrlActv：0x1 AND STAT_DSC：0x0)"
+    description: "验证当 TCS 无故障、正在激活(0x1)且 DSC 状态为 0x0 时，VF6N_EDR 记录的牵引力控制状态是否为 2 (Engaged/介入中)"
+    node_overrides:
+      "132": "85 00 1E 00 00 10 00 00"
+      "271": "4C 00 01 00 00 00 00 00"
+    expected_edr:
+      signal_name: "60Traction Control Status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "60Traction Control Status(ESC_TcsFlgFlt：0x1 AND ESC_TcsCtrlActv：0x1 AND STAT_DSC：0x3)"
+    description: "验证当 TCS 存在故障(0x1)、正在激活(0x1)且 DSC 状态为 0x3 时，VF6N_EDR 记录的牵引力控制状态是否为 3 (严重故障)"
+    node_overrides:
+      "132": "E5 00 1E 00 00 50 00 00"
+      "271": "C5 00 07 00 00 00 00 00"
+    expected_edr:
+      signal_name: "60Traction Control Status"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "60Traction Control Status(ESC_TcsFlgFlt：0x1 AND ESC_TcsCtrlActv：0x0 AND STAT_DSC：0x3)"
+    description: "验证当 TCS 存在故障(0x1)、未激活且 DSC 状态为 0x3 时，VF6N_EDR 记录的牵引力控制状态是否为 3 (严重故障)"
+    node_overrides:
+      "132": "FD 00 1E 00 00 40 00 00"
+      "271": "C5 00 07 00 00 00 00 00"
+    expected_edr:
+      signal_name: "60Traction Control Status"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "61Advanced emergency braking system status(0x00: Deactivated <= [FCAM_AEB_State = 0x0])"
+    description: "验证当 AEB 状态为 0x0 时，VF6N_EDR 记录的自动紧急制动系统状态是否为 0 (Deactivated/停用)"
+    node_overrides:
+      "21D": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "61Advanced emergency braking system status"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "61Advanced emergency braking system status(0x01: On but Nonengaged [FCAM_AEB_State = 0x4] )"
+    description: "验证当 AEB 状态为 0x4 时，VF6N_EDR 记录的自动紧急制动系统状态是否为 1 (On but Nonengaged/开启未介入)"
+    node_overrides:
+      "21D": "4C 00 01 00 00 00 00 00"
+    expected_edr:
+      signal_name: "61Advanced emergency braking system status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "61Advanced emergency braking system status(([FCAM_AEB_State = 0x1 AND FCAM_FCW_State = 0x1 AND [FCAM_AEB_Braking_Progress = 0x0]) )"
+    description: "验证当 AEB=0x1, FCW=0x1 且制动进度为 0x0 时，VF6N_EDR 记录的 AEB 状态是否为 1 (开启未介入)"
+    node_overrides:
+      "21D": "19 00 02 40 00 00 00 00"
+      "32E": "1E 00 7E 00 00 00"
+    expected_edr:
+      signal_name: "61Advanced emergency braking system status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "61Advanced emergency braking system status(0x02: Warning but Non-engaged([FCAM_AEB_State = 0x1 AND FCAM_FCW_State = 0x2 AND [FCAM_AEB_Braking_Progress = 0x0]) )"
+    description: "验证当 AEB=0x1, FCW=0x2(预警) 且制动进度为 0x0 时，VF6N_EDR 记录的 AEB 状态是否为 2 (Warning/预警未介入)"
+    node_overrides:
+      "21D": "90 00 04 40 00 00 00 00"
+      "32E": "1E 00 7E 00 00 00"
+    expected_edr:
+      signal_name: "61Advanced emergency braking system status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "61Advanced emergency braking system status(0x02: Warning but Non-engaged([FCAM_AEB_State = 0x2 AND FCAM_FCW_State = 0x2 AND [FCAM_AEB_Braking_Progress = 0x0])  )"
+    description: "验证当 AEB=0x2, FCW=0x2(预警) 且制动进度为 0x0 时，VF6N_EDR 记录的 AEB 状态是否为 2 (Warning/预警未介入)"
+    node_overrides:
+      "21D": "2C 00 04 80 00 00 00 00"
+      "32E": "1E 00 7E 00 00 00"
+    expected_edr:
+      signal_name: "61Advanced emergency braking system status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "61Advanced emergency braking system status(0x03: Engaged([FCAM_AEB_State = 0x2 AND FCAM_FCW_State = 0x1 AND [FCAM_AEB_Braking_Progress = 0x1]) )"
+    description: "验证当 AEB=0x2, FCW=0x1 且制动进度为 0x1(制动中) 时，VF6N_EDR 记录的 AEB 状态是否为 3 (Engaged/介入中)"
+    node_overrides:
+      "21D": "A5 00 02 80 00 00 00 00"
+      "32E": "2E 00 7E 20 00 00"
+    expected_edr:
+      signal_name: "61Advanced emergency braking system status"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "61Advanced emergency braking system status(0x04: Faulted [FCAM_AEB_State = 0x5])"
+    description: "验证当 AEB 状态为 0x5 时，VF6N_EDR 记录的自动紧急制动系统状态是否为 4 (Faulted/故障)"
+    node_overrides:
+      "21D": "D3 00 01 40 00 00 00 00"
+    expected_edr:
+      signal_name: "61Advanced emergency braking system status"
+      target_value: 4
+      tolerance: 0.1
+
+  - name: "62Cruise Control System(0x00:  Off [IVC_CVC_CruiseCtrlSts = 0x0])"
+    description: "验证当巡航控制状态为 0x0 时，VF6N_EDR 记录的巡航控制系统状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "166": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "62Cruise Control System"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "62Cruise Control System(0x02: Engaged [IVC_CVC_CruiseCtrlSts = 0x1])"
+    description: "验证当巡航控制状态为 0x1 时，VF6N_EDR 记录的巡航控制系统状态是否为 1 (Engaged/激活中)"
+    node_overrides:
+      "166": "00 00 08 00 00 00 00 00"
+    expected_edr:
+      signal_name: "62Cruise Control System"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "62Cruise Control System(0x03: Faulted [IVC_CVC_CruiseCtrlSts = 0x2])"
+    description: "验证当巡航控制状态为 0x2 时，VF6N_EDR 记录的巡航控制系统状态是否为 2 (Faulted/故障)"
+    node_overrides:
+      "166": "1E 00 10 00 00 00 00 00"
+    expected_edr:
+      signal_name: "62Cruise Control System"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "62Cruise Control System(0x03: Faulted [IVC_CVC_CruiseCtrlSts = 0x3])"
+    description: "验证当巡航控制状态为 0x3 时，VF6N_EDR 记录的巡航控制系统状态是否为 1 (特定映射状态)"
+    node_overrides:
+      "166": "14 00 18 00 00 00 00 00"
+    expected_edr:
+      signal_name: "62Cruise Control System"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "62Cruise Control System(0x03: Faulted [IVC_CVC_CruiseCtrlSts = 0x4])"
+    description: "验证当巡航控制状态为 0x4 时，VF6N_EDR 记录的巡航控制系统状态是否为 3 (特定故障/降级状态)"
+    node_overrides:
+      "166": "22 00 20 00 00 00 00 00"
+    expected_edr:
+      signal_name: "62Cruise Control System"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "63Adaptive Cruise Control Status (driving automation system level 1)(0x00: Off [ FCAM_ACC_State = 0x8] )"
+    description: "验证当 ACC 状态为 0x8 时，VF6N_EDR 记录的自适应巡航控制状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "353": "CA 00 00 00 00 80 00 00"
+    expected_edr:
+      signal_name: "63Adaptive Cruise Control Status (driving automation system level 1)"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "63Adaptive Cruise Control Status (driving automation system level 1)(0x01: Non-engaged [FCAM_ACC_State =0x0])"
+    description: "验证当 ACC 状态为 0x0 时，VF6N_EDR 记录的自适应巡航控制状态是否为 1 (Non-engaged/开启未激活)"
+    node_overrides:
+      "353": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "63Adaptive Cruise Control Status (driving automation system level 1)"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "63Adaptive Cruise Control Status (driving automation system level 1)(0x01: Non-engaged [FCAM_ACC_State =0x1])"
+    description: "验证当 ACC 状态为 0x1 时，VF6N_EDR 记录的自适应巡航控制状态是否为 1 (Non-engaged/开启未激活)"
+    node_overrides:
+      "353": "12 00 00 00 00 10 00 00"
+    expected_edr:
+      signal_name: "63Adaptive Cruise Control Status (driving automation system level 1)"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "63Adaptive Cruise Control Status (driving automation system level 1)(0x01: Non-engaged [FCAM_ACC_State =0x3])"
+    description: "验证当 ACC 状态为 0x3 时，VF6N_EDR 记录的自适应巡航控制状态是否为 1 (Non-engaged/开启未激活)"
+    node_overrides:
+      "353": "22 00 00 00 00 30 00 00"
+    expected_edr:
+      signal_name: "63Adaptive Cruise Control Status (driving automation system level 1)"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "63Adaptive Cruise Control Status (driving automation system level 1)(0x01: Non-engaged [FCAM_ACC_State =0x6])"
+    description: "验证当 ACC 状态为 0x6 时，VF6N_EDR 记录的自适应巡航控制状态是否为 1 (Non-engaged/开启未激活)"
+    node_overrides:
+      "353": "5A 00 00 00 00 60 00 00"
+    expected_edr:
+      signal_name: "63Adaptive Cruise Control Status (driving automation system level 1)"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "63Adaptive Cruise Control Status (driving automation system level 1)(0x02: Engaged [FCAM_ACC_State =0x2])"
+    description: "验证当 ACC 状态为 0x2 时，VF6N_EDR 记录的自适应巡航控制状态是否为 2 (Engaged/激活中)"
+    node_overrides:
+      "353": "3A 00 00 00 00 20 00 00"
+    expected_edr:
+      signal_name: "63Adaptive Cruise Control Status (driving automation system level 1)"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "63Adaptive Cruise Control Status (driving automation system level 1)(0x02: Engaged [FCAM_ACC_State =0x4])"
+    description: "验证当 ACC 状态为 0x4 时，VF6N_EDR 记录的自适应巡航控制状态是否为 2 (Engaged/激活中)"
+    node_overrides:
+      "353": "6A 00 00 00 00 40 00 00"
+    expected_edr:
+      signal_name: "63Adaptive Cruise Control Status (driving automation system level 1)"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "63Adaptive Cruise Control Status (driving automation system level 1)(0x02: Engaged [FCAM_ACC_State =0x5])"
+    description: "验证当 ACC 状态为 0x5 时，VF6N_EDR 记录的自适应巡航控制状态是否为 2 (Engaged/激活中)"
+    node_overrides:
+      "353": "72 00 00 00 00 50 00 00"
+    expected_edr:
+      signal_name: "63Adaptive Cruise Control Status (driving automation system level 1)"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "63Adaptive Cruise Control Status (driving automation system level 1)(0x03: Faulted  [FCAM_ACC_State =0x7])"
+    description: "验证当 ACC 状态为 0x7 时，VF6N_EDR 记录的自适应巡航控制状态是否为 3 (Faulted/故障)"
+    node_overrides:
+      "353": "42 00 00 00 00 70 00 00"
+    expected_edr:
+      signal_name: "63Adaptive Cruise Control Status (driving automation system level 1)"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "65Lane departure warning system status(0x00: Off  [FCAM_LDW_State = 0x0])"
+    description: "验证当 LDW(车道偏离预警)状态为 0x0 时，VF6N_EDR 记录的车道偏离预警系统状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "127": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "65Lane departure warning system status"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "65Lane departure warning system status(0x00: Off  [FCAM_LDW_State = 0x1])"
+    description: "验证当 LDW 状态为 0x1 时，VF6N_EDR 记录的车道偏离预警系统状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "127": "92 00 00 00 00 00 02 00"
+    expected_edr:
+      signal_name: "65Lane departure warning system status"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "65Lane departure warning system status(0x01: On but not warning[FCAM_LDW_State = 0x2])"
+    description: "验证当 LDW 状态为 0x2 时，VF6N_EDR 记录的车道偏离预警系统状态是否为 1 (On but not warning/开启未预警)"
+    node_overrides:
+      "127": "27 00 00 00 00 00 04 00"
+    expected_edr:
+      signal_name: "65Lane departure warning system status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "65Lane departure warning system status(0x01: On but not warning[FCAM_LDW_State = 0x3])"
+    description: "验证当 LDW 状态为 0x3 时，VF6N_EDR 记录的车道偏离预警系统状态是否为 1 (On but not warning/开启未预警)"
+    node_overrides:
+      "127": "BF 00 00 00 00 00 06 00"
+    expected_edr:
+      signal_name: "65Lane departure warning system status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "65Lane departure warning system status(0x02: On – Warning left [FCAM_LDW_State = 0x4 AND FCAM_LDW_Warning = 0x1])"
+    description: "验证当 LDW 状态为 0x4 且触发左侧预警(0x1)时，VF6N_EDR 记录的车道偏离预警系统状态是否为 2 (Warning left/左侧预警)"
+    node_overrides:
+      "127": "DF 00 00 00 00 01 08 00"
+    expected_edr:
+      signal_name: "65Lane departure warning system status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "65Lane departure warning system status(0x03: On – Warning right [FCAM_LDW_State = 0x4 AND FCAM_LDW_Warning = 0x2])"
+    description: "验证当 LDW 状态为 0x4 且触发右侧预警(0x2)时，VF6N_EDR 记录的车道偏离预警系统状态是否为 3 (Warning right/右侧预警)"
+    node_overrides:
+      "127": "53 00 00 00 00 02 08 00"
+    expected_edr:
+      signal_name: "65Lane departure warning system status"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "65Lane departure warning system status(0x04: Faulted [FCAM_LDW_State = 0x5])"
+    description: "验证当 LDW 状态为 0x5 时，VF6N_EDR 记录的车道偏离预警系统状态是否为 4 (Faulted/故障)"
+    node_overrides:
+      "127": "C8 00 00 00 00 00 0A 00"
+    expected_edr:
+      signal_name: "65Lane departure warning system status"
+      target_value: 4
+      tolerance: 0.1
+
+  - name: "66Corrective steering function status(0x00: Off [FCAM_LKA_State = 0x1])"
+    description: "验证当 LKA(车道保持辅助)状态为 0x1 时，VF6N_EDR 记录的纠正转向功能状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "127": "7E 00 00 00 00 00 00 04"
+    expected_edr:
+      signal_name: "66Corrective steering function status"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "66Corrective steering function status(0x01: On but not engaged [FCAM_LKA_State = 0x2])"
+    description: "验证当 LKA 状态为 0x2 时，VF6N_EDR 记录的纠正转向功能状态是否为 1 (On but not engaged/开启未介入)"
+    node_overrides:
+      "127": "E2 00 00 00 00 00 00 08"
+    expected_edr:
+      signal_name: "66Corrective steering function status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "66Corrective steering function status(0x01: On but not engaged [FCAM_LKA_State = 0x3])"
+    description: "验证当 LKA 状态为 0x3 时，VF6N_EDR 记录的纠正转向功能状态是否为 1 (On but not engaged/开启未介入)"
+    node_overrides:
+      "127": "96 00 00 00 00 00 00 0C"
+    expected_edr:
+      signal_name: "66Corrective steering function status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "66Corrective steering function status(0x02: Engaged [FCAM_LKA_State = 0x4])"
+    description: "验证当 LKA 状态为 0x4 时，VF6N_EDR 记录的纠正转向功能状态是否为 2 (Engaged/介入中)"
+    node_overrides:
+      "127": "C7 00 00 00 00 00 00 10"
+    expected_edr:
+      signal_name: "66Corrective steering function status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "66Corrective steering function status(0x03: Faulted [FCAM_LKA_State = 0x5])"
+    description: "验证当 LKA 状态为 0x5 时，VF6N_EDR 记录的纠正转向功能状态是否为 3 (Faulted/故障)"
+    node_overrides:
+      "127": "B3 00 00 00 00 00 00 14"
+    expected_edr:
+      signal_name: "66Corrective steering function status"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "66Corrective steering function status(0x03: Faulted [FCAM_LKA_State = 0x0])"
+    description: "验证当 LKA 状态为 0x0 (无效/不可用) 时，VF6N_EDR 记录的纠正转向功能状态是否置为 255 (无效)"
+    node_overrides:
+      "127": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "66Corrective steering function status"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "67Emergency steering function status(0x00: Off [ FCAM_ELK_State = 0x1 ])"
+    description: "验证当 ELK(紧急转向)状态为 0x1 时，VF6N_EDR 记录的紧急转向功能状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "127": "3A 00 00 00 00 20 00 00"
+    expected_edr:
+      signal_name: "67Emergency steering function status"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "67Emergency steering function status(0x00: Off [ FCAM_ELK_State = 0x2 ])"
+    description: "验证当 ELK 状态为 0x2 时，VF6N_EDR 记录的紧急转向功能状态是否为 1 (On but not engaged/开启未介入)"
+    node_overrides:
+      "127": "6A 00 00 00 00 40 00 00"
+    expected_edr:
+      signal_name: "67Emergency steering function status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "67Emergency steering function status(0x00: Off [ FCAM_ELK_State = 0x3 ])"
+    description: "验证当 ELK 状态为 0x3 时，VF6N_EDR 记录的紧急转向功能状态是否为 1 (On but not engaged/开启未介入)"
+    node_overrides:
+      "127": "5A 00 00 00 00 60 00 00"
+    expected_edr:
+      signal_name: "67Emergency steering function status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "67Emergency steering function status(0x00: Off [ FCAM_ELK_State = 0x4])"
+    description: "验证当 ELK 状态为 0x4 时，VF6N_EDR 记录的紧急转向功能状态是否为 2 (Engaged/介入中)"
+    node_overrides:
+      "127": "CA 00 00 00 00 80 00 00"
+    expected_edr:
+      signal_name: "67Emergency steering function status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "67Emergency steering function status(0x00: Off [ FCAM_ELK_State = 0x5])"
+    description: "验证当 ELK 状态为 0x5 时，VF6N_EDR 记录的紧急转向功能状态是否为 3 (Faulted/故障)"
+    node_overrides:
+      "127": "FA 00 00 00 00 A0 00 00"
+    expected_edr:
+      signal_name: "67Emergency steering function status"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "68Automatically commanded steering function category B1 status(0x00: Off [FCAM_HWA_state = 0x0])"
+    description: "验证当 HWA(高速辅助驾驶)状态为 0x0 时，VF6N_EDR 记录的 B1 类自动转向功能状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "206": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "68Automatically commanded steering function category B1 status"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "68Automatically commanded steering function category B1 status(0x01: Stand-By [FCAM_HWA_state = 0x1 ])"
+    description: "验证当 HWA 状态为 0x1 时，VF6N_EDR 记录的 B1 类自动转向功能状态是否为 1 (Stand-By/待命)"
+    node_overrides:
+      "206": "4C 00 01 00 00 00 00 00"
+    expected_edr:
+      signal_name: "68Automatically commanded steering function category B1 status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "68Automatically commanded steering function category B1 status(0x01: Stand-By [FCAM_HWA_state = 0x3 ])"
+    description: "验证当 HWA 状态为 0x3 时，VF6N_EDR 记录的 B1 类自动转向功能状态是否为 1 (Stand-By/待命)"
+    node_overrides:
+      "206": "C0 00 03 00 00 00 00 00"
+    expected_edr:
+      signal_name: "68Automatically commanded steering function category B1 status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "68Automatically commanded steering function category B1 status(0x01: Stand-By [FCAM_HWA_state = 0x4 ])"
+    description: "验证当 HWA 状态为 0x4 时，VF6N_EDR 记录的 B1 类自动转向功能状态是否为 1 (Stand-By/待命)"
+    node_overrides:
+      "206": "0F 00 04 00 00 00 00 00"
+    expected_edr:
+      signal_name: "68Automatically commanded steering function category B1 status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "68Automatically commanded steering function category B1 status(0x01: Stand-By [FCAM_HWA_state = 0x5 ])"
+    description: "验证当 HWA 状态为 0x5 时，VF6N_EDR 记录的 B1 类自动转向功能状态是否为 1 (Stand-By/待命)"
+    node_overrides:
+      "206": "49 00 05 00 00 00 00 00"
+    expected_edr:
+      signal_name: "68Automatically commanded steering function category B1 status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "68Automatically commanded steering function category B1 status(0x01: Stand-By [FCAM_HWA_state = 0x2 ])"
+    description: "验证当 HWA 状态为 0x2 时，VF6N_EDR 记录的 B1 类自动转向功能状态是否为 2 (Engaged/激活中)"
+    node_overrides:
+      "206": "86 00 02 00 00 00 00 00"
+    expected_edr:
+      signal_name: "68Automatically commanded steering function category B1 status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "68Automatically commanded steering function category B1 status(0x01: Stand-By [FCAM_HWA_state = 0x6 ])"
+    description: "验证当 HWA 状态为 0x6 时，VF6N_EDR 记录的 B1 类自动转向功能状态是否为 2 (Engaged/激活中)"
+    node_overrides:
+      "206": "83 00 06 00 00 00 00 00"
+    expected_edr:
+      signal_name: "68Automatically commanded steering function category B1 status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "68Automatically commanded steering function category B1 status(0x01: Stand-By [FCAM_HWA_state = 0x7 ])"
+    description: "验证当 HWA 状态为 0x7 时，VF6N_EDR 记录的 B1 类自动转向功能状态是否为 2 (Engaged/激活中)"
+    node_overrides:
+      "206": "C5 00 07 00 00 00 00 00"
+    expected_edr:
+      signal_name: "68Automatically commanded steering function category B1 status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "68Automatically commanded steering function category B1 status(0x01: Stand-By [FCAM_HWA_state = 0x8 ])"
+    description: "验证当 HWA 状态为 0x8 时，VF6N_EDR 记录的 B1 类自动转向功能状态是否为 3 (Faulted/故障)"
+    node_overrides:
+      "206": "00 00 08 00 00 00 00 00"
+    expected_edr:
+      signal_name: "68Automatically commanded steering function category B1 status"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "69Automatically commanded steering function category C status(0x00: Off [FCAM_ALC_state = 0x0])"
+    description: "验证当 ALC(自动变道辅助)状态为 0x0 时，VF6N_EDR 记录的 C 类自动转向功能状态是否为 0 (Off/关闭)"
+    node_overrides:
+      "206": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "69Automatically commanded steering function category C status"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "69Automatically commanded steering function category C status(0x00: Off [FCAM_ALC_state = 0x1])"
+    description: "验证当 ALC 状态为 0x1 时，VF6N_EDR 记录的 C 类自动转向功能状态是否为 1 (Stand-By/待命)"
+    node_overrides:
+      "206": "60 00 00 01 00 00 00 00"
+    expected_edr:
+      signal_name: "69Automatically commanded steering function category C status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "69Automatically commanded steering function category C status(0x00: Off [FCAM_ALC_state = 0x4])"
+    description: "验证当 ALC 状态为 0x4 时，VF6N_EDR 记录的 C 类自动转向功能状态是否为 1 (Stand-By/待命)"
+    node_overrides:
+      "206": "BF 00 00 04 00 00 00 00"
+    expected_edr:
+      signal_name: "69Automatically commanded steering function category C status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "69Automatically commanded steering function category C status(0x00: Off [FCAM_ALC_state = 0x5])"
+    description: "验证当 ALC 状态为 0x5 时，VF6N_EDR 记录的 C 类自动转向功能状态是否为 1 (Stand-By/待命)"
+    node_overrides:
+      "206": "D5 00 00 05 00 00 00 00"
+    expected_edr:
+      signal_name: "69Automatically commanded steering function category C status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "69Automatically commanded steering function category C status(0x00: Off [FCAM_ALC_state = 0x2])"
+    description: "验证当 ALC 状态为 0x2 时，VF6N_EDR 记录的 C 类自动转向功能状态是否为 2 (Engaged/激活中)"
+    node_overrides:
+      "206": "DE 00 00 02 00 00 00 00"
+    expected_edr:
+      signal_name: "69Automatically commanded steering function category C status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "69Automatically commanded steering function category C status(0x00: Off [FCAM_ALC_state = 0x6])"
+    description: "验证当 ALC 状态为 0x6 时，VF6N_EDR 记录的 C 类自动转向功能状态是否为 3 (Faulted/故障)"
+    node_overrides:
+      "206": "6B 00 00 06 00 00 00 00"
+    expected_edr:
+      signal_name: "69Automatically commanded steering function category C status"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "70Accident emergency call system status(0x00: Off/Deactive [Ecall_state= 0x0])"
+    description: "验证当 Ecall(紧急呼叫)状态为 0x0 时，VF6N_EDR 记录的事故紧急呼叫系统状态是否为 0 (Off/Deactive/停用)"
+    node_overrides:
+      "412": "00 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "70Accident emergency call system status"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "70Accident emergency call system status(0x00: Off/Deactive [Ecall_state= 0x2])"
+    description: "验证当 Ecall 状态为 0x2 时，VF6N_EDR 记录的事故紧急呼叫系统状态是否为 1 (Standby/待命)"
+    node_overrides:
+      "412": "02 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "70Accident emergency call system status"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "70Accident emergency call system status(0x00: Off/Deactive [Ecall_state= 0x3])"
+    description: "验证当 Ecall 状态为 0x3 时，VF6N_EDR 记录的事故紧急呼叫系统状态是否为 2 (Active/激活中)"
+    node_overrides:
+      "412": "03 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "70Accident emergency call system status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "70Accident emergency call system status(0x00: Off/Deactive [Ecall_state= 0x4])"
+    description: "验证当 Ecall 状态为 0x4 时，VF6N_EDR 记录的事故紧急呼叫系统状态是否为 2 (Active/激活中)"
+    node_overrides:
+      "412": "04 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "70Accident emergency call system status"
+      target_value: 2
+      tolerance: 0.1
+
+  - name: "70Accident emergency call system status(0x00: Off/Deactive [Ecall_state= 0x1])"
+    description: "验证当 Ecall 状态为 0x1 时，VF6N_EDR 记录的事故紧急呼叫系统状态是否为 3 (Faulted/故障)"
+    node_overrides:
+      "412": "01 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "70Accident emergency call system status"
+      target_value: 3
+      tolerance: 0.1
+
+  - name: "71Accident time - Year(DISP_DATE_YR)"
+    description: "验证当注入车辆日期时间报文时，VF6N_EDR 记录的事故时间-年份是否准确解析为 2026 年"
+    node_overrides:
+      "2F8": "11 1E 0A 01 06 07 EA 00"
+    expected_edr:
+      signal_name: "71Accident time - Year"
+      target_value: 2026
+      tolerance: 0.1
+
+  - name: "72Accident time - Month(DISP_DATE_MON)"
+    description: "验证当注入车辆日期时间报文时，VF6N_EDR 记录的事故时间-月份是否准确解析为 6 月"
+    node_overrides:
+      "2F8": "11 1E 0A 01 06 07 EA 00"
+    expected_edr:
+      signal_name: "72Accident time - Month"
+      target_value: 6
+      tolerance: 0.1
+
+  - name: "73Accident time - Day(DISP_DATE_DAY)"
+    description: "验证当注入车辆日期时间报文时，VF6N_EDR 记录的事故时间-日期是否准确解析为 1 日"
+    node_overrides:
+      "2F8": "11 1E 0A 01 06 07 EA 00"
+    expected_edr:
+      signal_name: "73Accident time - Day"
+      target_value: 1
+      tolerance: 0.1
+
+  - name: "74Accident time - Hour(DISP_TIME_HR)"
+    description: "验证当注入车辆日期时间报文时，VF6N_EDR 记录的事故时间-小时是否准确解析为 17 时"
+    node_overrides:
+      "2F8": "11 1E 0A 01 06 07 EA 00"
+    expected_edr:
+      signal_name: "74Accident time - Hour"
+      target_value: 17
+      tolerance: 0.1
+
+  - name: "74Accident time - Hour(DISP_TIME_MIN)"
+    description: "验证当注入车辆日期时间报文时，VF6N_EDR 记录的事故时间-分钟是否准确解析为 30 分"
+    node_overrides:
+      "2F8": "11 1E 0A 01 06 07 EA 00"
+    expected_edr:
+      signal_name: "75Accident time - Minute"
+      target_value: 30
+      tolerance: 0.1
+
+  - name: "76Accident time - Second(DISP_TIME_SEC)"
+    description: "验证当注入车辆日期时间报文时，VF6N_EDR 记录的事故时间-秒数是否准确解析为 10 秒"
+    node_overrides:
+      "2F8": "11 1E 0A 01 06 07 EA 00"
+    expected_edr:
+      signal_name: "76Accident time - Second"
+      target_value: 10
+      tolerance: 0.1
+
+  - name: "77Vehicle Mileage(IC_OdometerV value is 0x0 and IC_Odometer ts between)"
+    description: "验证当里程表信号值为 0x0 时，VF6N_EDR 记录的车辆里程数是否准确为 0"
+    node_overrides:
+      "20c": "0A 00 00 00 00 00 00 00"
+    expected_edr:
+      signal_name: "77Vehicle Mileage"
+      target_value: 0
+      tolerance: 0.1
+
+  - name: "77Vehicle Mileage(IC_Odometer is between 0x00000 and 0x0927C0 -> Received data stored)"
+    description: "验证当里程表信号值在有效范围(0x00000~0x0927C0)内时，VF6N_EDR 记录的车辆里程数是否准确存储为 666"
+    node_overrides:
+      "20c": "A9 00 00 29 A0 00 00 00"
+    expected_edr:
+      signal_name: "77Vehicle Mileage"
+      target_value: 666
+      tolerance: 0.1
+
+  - name: "77Vehicle Mileage(IC_Odometer is between 0x927C1 and  0xFFFFF -> Invalid data stored)"
+    description: "验证当里程表信号值超出有效范围(>0x927C0)时，VF6N_EDR 记录的车辆里程数是否正确置为 255 (无效数据)"
+    node_overrides:
+      "20c": "96 00 00 00 08 00 00 00"
+    expected_edr:
+      signal_name: "77Vehicle Mileage"
+      target_value: 255
+      tolerance: 0.1
+
+  - name: "78Vehicle Identification Number (VIN)(CVC_VEHICLE_IDENT_NUMBER（0x383）37 37 37 37 37 37 37 00)"
+    description: "验证当注入 VIN 码报文(ASCII '7777777')时，VF6N_EDR 记录的车辆识别代号(VIN)是否准确解析并存储"
+    node_overrides:
+      "383": "37 37 37 37 37 37 37 00"
+    expected_edr:
+      signal_name: "78Vehicle Identification Number (VIN)"
+      target_value: 7777777
+      tolerance: 0.1

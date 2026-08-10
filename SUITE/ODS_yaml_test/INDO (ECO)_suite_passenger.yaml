@@ -1,0 +1,127 @@
+channel_name: "INDO (ECO)_Seat_Occupancy_Passenger"
+cases:
+  - id: "TC_Pass_0_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为0欧姆"
+    resistance: 0
+    expected:
+      seat_status: "Failure"
+      acu_status: "ACU_Failure"
+      dtc: ["94261A-09"]
+      drift: 0
+
+  - id: "TC_Pass_100_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为100欧姆"
+    resistance: 100
+    expected:
+      seat_status: "Failure"
+      acu_status: "ACU_Failure"
+      dtc: ["94261A-09"]
+      drift: 100
+
+  - id: "TC_Pass_200_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为200欧姆"
+    resistance: 180
+    expected:
+      seat_status: "Failure"
+      acu_status: "ACU_Failure"
+      dtc: ["94261A-09"]
+      drift: 200
+
+  - id: "TC_Pass_300_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为300欧姆"
+    resistance: 300
+    expected:
+      seat_status: "Failure"
+      acu_status: "ACU_Failure"
+      dtc: ["942600-09"]
+      drift: 300
+
+  - id: "TC_Pass_400_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为400欧姆"
+    resistance: 420
+    expected:
+      seat_status: "Seat Occupied"
+      acu_status: "ACU_Normal_Operation"
+      dtc: []
+      drift: 400
+
+  - id: "TC_Pass_600_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为600欧姆"
+    resistance: 600
+    expected:
+      seat_status: "Seat Occupied"
+      acu_status: "ACU_Normal_Operation"
+      dtc: []
+      drift: 600
+
+  - id: "TC_Pass_700_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为700欧姆"
+    resistance: 680
+    expected:
+      seat_status: "Seat Occupied"
+      acu_status: "ACU_Normal_Operation"
+      dtc: []
+      drift: 700
+
+  - id: "TC_Pass_1200_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为1200欧姆"
+    resistance: 1200
+    expected:
+      seat_status: "Failure"
+      acu_status: "ACU_Failure"
+      dtc: ["942600-09"]  # ⚠️ 注意：此处可能为文档笔误，应为 other fault 或 high threshold
+      drift: 1200
+
+  - id: "TC_Pass_1300_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为1300欧姆"
+    resistance: 1350
+    expected:
+      seat_status: "Seat_Not_Occupied"
+      acu_status: "ACU_Normal_Operation"
+      dtc: []
+      drift: 1300
+
+  - id: "TC_Pass_1600_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为1600欧姆"
+    resistance: 1550
+    expected:
+      seat_status: "Seat_Not_Occupied"
+      acu_status: "ACU_Normal_Operation"
+      dtc: []
+      drift: 1600
+
+  - id: "TC_Pass_1700_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为1700欧姆"
+    resistance: 1700
+    expected:
+      seat_status: "Failure"
+      acu_status: "ACU_Failure"
+      dtc: ["942600-09"]
+      drift: 1700
+
+  - id: "TC_Pass_2400_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为2400欧姆"
+    resistance: 2400
+    expected:
+      seat_status: "Failure"
+      acu_status: "ACU_Failure"
+      dtc: ["942600-09"]
+      drift: 2400
+
+  - id: "TC_Pass_2500_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为2500欧姆"
+    resistance: 2700
+    expected:
+      seat_status: "Failure"
+      acu_status: "ACU_Failure"
+      dtc: ["94261B-09"]
+      drift: 2500
+
+  - id: "TC_Pass_infinity_ohm"
+    description: "设置Occupant Detection System passenger回路阻值为infinity"
+    resistance: "infinity"
+    expected:
+      seat_status: "Failure"
+      acu_status: "ACU_Failure"
+      dtc: ["94261B-09"]
+      drift: null

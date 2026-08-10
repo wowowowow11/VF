@@ -1,0 +1,13 @@
+# 设置变量并运行
+set RUN_YAML=ECUReset&& F:\Python3.10\python.exe -m pytest test_generic.py -s
+$env:RUN_YAML="ECUReset"; F:\Python3.10\python.exe -m pytest test_generic.py -s
+RUN_YAML="ECUReset" python3 -m pytest test_generic.py -s
+pytest test_generic.py --alluredir=./allure-results --clean-alluredir
+
+set RUN_YAML=ECUReset&& F:\Python3.10\python.exe -m pytest test_generic.py --alluredir=./allure-results --clean-alluredir
+$env:RUN_YAML="ECUReset"; F:\Python3.10\python.exe -m pytest test_generic.py --alluredir=./allure-results --clean-alluredir
+$env:RUN_YAML=""; F:\Python3.10\python.exe -m pytest test_generic.py -o log_cli=false -o addopts="--alluredir=./allure-results --clean-alluredir"
+
+allure generate ./allure-results -o ./allure-report --clean --single-file      保存本地
+allure serve ./allure-results        直接生成
+allure open -h 192.168.0.135 -p 8080 ./allure-report    局域网页版

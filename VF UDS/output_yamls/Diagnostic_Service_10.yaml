@@ -1,0 +1,1580 @@
+CAN0:
+  projectName: "VF6.PY"
+  baudRate: 500
+  sndPhysicalID: "0x688"
+  rcvPhysicalID: "0x608"
+  sndFunctionID: "0x6ff"
+  rcvBroadcastID: ["0x85", "0x381", "0x488"]
+  saLibPath: "F:\\Python3.10\\VF6_UDS\\VF65ZLGDll.dll"
+  rcvNodeID:
+    - data: ["0x0A", "0x00", "0x00", "0x00", "0x00", "0x00", "0x00", "0x00"]
+      period: 20
+      nodeID: "0x20D"
+    - data: ["0x2D", "0x00", "0x00", "0x00", "0x02", "0x00", "0x00", "0x00"]
+      period: 100
+      nodeID: "0x112"
+    - data: ["0x17", "0x00", "0x00", "0x00", "0x00", "0x07", "0xD0", "0x00"]
+      period: 120
+      nodeID: "0x40D"
+  UDS:
+    PositiveResponse:
+      Enable: 1
+      TestCase:
+        - id: "Diag_session_01"
+          description: "DiagnosticSessionControl$10-Application Supported-0x01-Default-Default session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_session_02"
+          description: "DiagnosticSessionControl$10-Application Supported-0x01-Default-Default suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 1000
+
+        - id: "Diag_session_03"
+          description: "DiagnosticSessionControl$10-Application Supported-0x01-Default-extended diagnostic session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_session_04"
+          description: "DiagnosticSessionControl$10-Application Supported-0x01-Default-extended session with suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x83", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 1000
+
+        - id: "Diag_session_05"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Default session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_session_06"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Default suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x81", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 1000
+
+        - id: "Diag_session_07"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Reprogramming session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_session_08"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Programming suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x82", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 1000
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+
+        - id: "Diag_session_09"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-extended diagnostic session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_session_10"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-extended session with suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x83", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x83", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 1000
+
+        - id: "Diag_session_11"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Coding session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x41", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_session_12"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Coding Session(with suppress-PosRspMsg-Indication-Bit)"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0xC1", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0xC1", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 1000
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+
+        - id: "Diag_session_13"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-Default session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_session_14"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-Default suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x81", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 1000
+
+        - id: "Diag_session_15"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-Reprogramming session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: [ "0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_session_16"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-Programming suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: [ "0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x82", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x82", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 1000
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+
+        - id: "Diag_session_17"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-extended diagnostic session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 1000
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+        - id: "Diag_session_18"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-extended session with suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x83", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x83", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 1
+                delayTime: 1000
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+
+        - id: "Diag_session_19"
+          description: "DiagnosticSessionControl$10-Application Supported-0x01-Default-Default session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_session_20"
+          description: "DiagnosticSessionControl$10-Application Supported-0x01-Default-Default suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 1000
+
+        - id: "Diag_session_21"
+          description: "DiagnosticSessionControl$10-Application Supported-0x01-Default-extended diagnostic session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_session_22"
+          description: "DiagnosticSessionControl$10-Application Supported-0x01-Default-extended session with suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x83", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 1000
+
+        - id: "Diag_session_23"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Default session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_session_24"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Default suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x81", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 1000
+
+        - id: "Diag_session_25"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Reprogramming session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_session_26"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Programming suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x82", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 1000
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+
+        - id: "Diag_session_27"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-extended diagnostic session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_session_28"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-extended session with suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x83", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x83", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 1000
+
+        - id: "Diag_session_29"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Coding session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x41", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_session_30"
+          description: "DiagnosticSessionControl$10-Application Supported-0x03-Extended-Coding Session(with suppress-PosRspMsg-Indication-Bit)"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0xC1", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0xC1", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 1000
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+
+        - id: "Diag_session_31"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-Default session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_session_32"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-Default suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x81", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x81", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 1000
+
+        - id: "Diag_session_33"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-Reprogramming session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: [ "0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_session_34"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-Programming suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: [ "0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x82", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x82", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 1000
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+
+        - id: "Diag_session_35"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-extended diagnostic session"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+        - id: "Diag_session_36"
+          description: "DiagnosticSessionControl$10-Bootloader Supported-0x01-Default-extended session with suppress positive response"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x02", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x02", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x83", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x83", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 1
+                isPhysicalID: 0
+                delayTime: 1000
+              - send: [ "0x02", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00" ]
+                recv: [ "0x06", "0x50", "0x01", "0x00", "0x32", "0x00", "0xC8" ]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 0
+                delayTime: 80
+
+    NegativeResponse:
+      Enable: 1
+      TestCase:
+        - id: "Diag_session_neg_01"
+          description: "DiagnosticSessionControl$10-NegativeResponsePhysicalID-defaultSession-NRC13"
+          testInstructions:
+            data:
+              - send: ["0x01", "0x10"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x01", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x01", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x01", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x08", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x09", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x03"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x03", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x03", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x03", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x08", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x09", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0A", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0B", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09", "0x0A"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0C", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09", "0x0A", "0x0B"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x41"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x41", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x41", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x41", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x08", "0x10", "0x41", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x09", "0x10", "0x41", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0A", "0x10", "0x41", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0B", "0x10", "0x41", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09", "0x0A"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0C", "0x10", "0x41", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09", "0x0A", "0x0B"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+
+        - id: "Diag_session_neg_02"
+          description: "DiagnosticSessionControl$10-NegativeResponsePhysicalID-extendedSession-NRC13"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x01", "0x10"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x01", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x01", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x01", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x08", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x09", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x03"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x03", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x03", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x03", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x08", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x09", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0A", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0B", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09", "0x0A"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0C", "0x10", "0x01", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09", "0x0A", "0x0B"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x41"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x41", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x41", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x41", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x08", "0x10", "0x41", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x09", "0x10", "0x41", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0A", "0x10", "0x41", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0B", "0x10", "0x41", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09", "0x0A"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+              - send: ["0x10", "0x0C", "0x10", "0x41", "0x02", "0x03", "0x04", "0x05", "0x06", "0x07", "0x08", "0x09", "0x0A", "0x0B"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                delayTime: 80
+
+        - id: "Diag_session_neg_03"
+          description: "DiagnosticSessionControl$10-NegativeResponseFunctionID-defaultSession-NRC13"
+          testInstructions:
+            data:
+              - send: ["0x01", "0x10"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x01", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x01", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x01", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x03", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x03", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x03", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x41", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x41", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x41", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+
+        - id: "Diag_session_neg_04"
+          description: "DiagnosticSessionControl$10-NegativeResponseFunctionID-extendedSession-NRC13"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x01", "0x10"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x01", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x01", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x01", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x01", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x03", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x03", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x03", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x03", "0x10", "0x41", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x04", "0x10", "0x41", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x05", "0x10", "0x41", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x06", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+              - send: ["0x07", "0x10", "0x41", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x13"]
+                isPhysicalID: 0
+                delayTime: 80
+
+        - id: "Diag_session_neg_05"
+          description: "DiagnosticSessionControl$10-NegativeResponsePhysicalID-defaultSession-NRC12"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x05"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x06"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x07"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x09"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0A"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0B"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0C"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0D"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0E"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0F"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x10"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x11"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x12"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x13"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x14"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x15"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x16"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x17"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x18"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x19"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1A"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1B"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1C"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1D"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1E"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1F"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x20"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x21"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x22"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+
+        - id: "Diag_session_neg_06"
+          description: "DiagnosticSessionControl$10-NegativeResponsePhysicalID-extendedSession-NRC12"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x05"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x06"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x07"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x09"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0A"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0B"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0C"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0D"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0E"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0F"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x10"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x11"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x12"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x13"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x14"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x15"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x16"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x17"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x18"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x19"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1A"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1B"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1C"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1D"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1E"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1F"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x20"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x21"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x22"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                delayTime: 80
+
+        - id: "Diag_session_neg_07"
+          description: "DiagnosticSessionControl$10-NegativeResponseFunctionID-defaultSession-NRC12"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x05"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x06"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x07"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x09"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0A"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0B"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0C"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0D"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0E"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0F"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x10"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x11"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x12"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x13"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x14"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x15"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x16"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x17"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x18"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x19"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1A"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1B"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1C"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1D"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1E"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1F"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x20"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x21"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x22"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x23"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x24"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x25"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x26"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x27"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x28"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x29"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x2A"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x2B"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+
+        - id: "Diag_session_neg_08"
+          description: "DiagnosticSessionControl$10-NegativeResponseFunctionID-extendedSession-NRC12"
+          testInstructions:
+            data:
+              - send: ["0x02", "0x10", "0x03", "0x00", "0x00", "0x00", "0x00", "0x00"]
+                recv: ["0x06", "0x50", "0x03", "0x00", "0x32", "0x00", "0xC8"]
+                suppressPosRspMsgIndicationBit: 0
+                isPhysicalID: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x00"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x05"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x06"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x07"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x08"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x09"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0A"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0B"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0C"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0D"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0E"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x0F"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x10"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x11"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x12"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x13"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x14"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x15"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x16"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x17"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x18"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x19"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1A"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1B"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1C"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1D"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1E"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x1F"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x20"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x21"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x22"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x23"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x24"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x25"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x26"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x27"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x28"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x29"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x2A"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80
+              - send: ["0x02", "0x10", "0x2B"]
+                recv: ["0x03", "0x7F", "0x10", "0x12"]
+                isPhysicalID: 0
+                isSendNoResponse: 1
+                delayTime: 80

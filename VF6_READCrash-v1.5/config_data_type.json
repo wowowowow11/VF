@@ -1,0 +1,600 @@
+{
+    "VF65": {
+        "FrontCrash": {
+            "000_x_acc_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "001_y_acc_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "002_external_longitudinal_left_lateral_acc_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "003_external_longitudinal_right_lateral_acc_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "004_misc_bits": 1,
+            "005_PAS_OK_bits": 1,
+            "006_AngleCrash_FrontLH_misc_bits1": 1,
+            "007_AngleCrash_LR_misc_bits1": 1,
+            "008_AngleCrash_FrontRH_misc_bits1": 1,
+            "009_AngleCrash_RL_misc_bits1": 1,
+            "010_FrontPoleCrash_FrontLH_misc_bits1": 1,
+            "011_FrontPoleCrash_LH_misc_bits1": 1,
+            "012_FrontPoleCrash_FrontRH_misc_bits1": 1,
+            "013_FrontPoleCrash_RH_misc_bits1": 1,
+            "014_SidePoleCrash_SILH_misc_bits1": 1,
+            "015_SidePoleCrash_LH_misc_bits1": 1,
+            "016_SidePoleCrash_SIRH_misc_bits1": 1,
+            "017_SidePoleCrash_RH_misc_bits1": 1,
+            "018_Fcoff": 4,
+            "019_SideLHcoff": 4,
+            "020_SideRHcoff": 4,
+            "021_AngleCrash_FLHcoff": 4,
+            "022_AngleCrash_FRHcoff": 4,
+            "023_FrontPoleCrash_FLHcoff": 4,
+            "024_FrontPoleCrash_FRHcoff": 4,
+            "025_SidePoleCrash_SLHcoff": 4,
+            "026_SidePoleCrash_SRHcoff": 4,
+            "027_AngleCrash_FISLR_Disp_X_DiffValue": 4,
+            "028_AngleCrash_FISRL_Disp_X_DiffValue": 4,
+            "029_FrontPoleCrash_FRLH_Disp_X_DiffValue": 4,
+            "030_FrontPoleCrash_FRRH_Disp_X_DiffValue": 4,
+            "031_SidePoleCrash_SILH_Disp_Y_DiffValue": 4,
+            "032_SidePoleCrash_SIRH_Disp_Y_DiffValue": 4,
+            "033_FrontCrash_AlgoCounter": 1,
+            "034_FISLH_AlgoCounter": 1,
+            "035_FISRH_AlgoCounter": 1,
+            "036_FrontCrash_Threshold_Count": 1,
+            "037_FISLH_Threshold_Count": 1,
+            "038_FISRH_Threshold_Count": 1,
+            "039_FrontCrash_fire_bits": 1,
+            "040_FrontCrash_fire_bits2": 1,
+            "041_FrontCrash_misc_bits": 1,
+            "042_FrontCrash_misc_bits2": 1,
+            "043_FrontCrash_misc_bits3": 1,
+            "044_FISLH_fire_bits": 1,
+            "045_FISLH_fire_bits2": 1,
+            "046_FISLH_misc_bits2": 1,
+            "047_FISRH_fire_bits": 1,
+            "048_FISRH_fire_bits2": 1,
+            "049_FISRH_misc_bits2": 1,
+            "050_Front_fire_bits": 1,
+            "051_Front_fire_bits2": 1,
+            "052_bits_FISD_FireLevel1": 1,
+            "053_bits_FISP_FireLevel1": 1,
+            "054_FrontCrash_SavedAccltn_X_0": {
+                "Length": 2,
+                "Signed": true
+            },
+            "055_FrontCrash_SavedAccltn_X_1": {
+                "Length": 2,
+                "Signed": true
+            },
+            "056_FrontCrash_SavedAccltn_X_2": {
+                "Length": 2,
+                "Signed": true
+            },
+            "057_FrontCrash_SavedAccltn_X_3": {
+                "Length": 2,
+                "Signed": true
+            },
+            "058_FrontCrash_SavedAccltn_X_4": {
+                "Length": 2,
+                "Signed": true
+            },
+            "059_FrontCrash_SavedAccltn_X_5": {
+                "Length": 2,
+                "Signed": true
+            },
+            "060_FrontCrash_SavedAccltn_X_6": {
+                "Length": 2,
+                "Signed": true
+            },
+            "061_FrontCrash_SavedAccltn_X_7": {
+                "Length": 2,
+                "Signed": true
+            },
+            "062_FrontCrash_LowPassFilter_X": {
+                "Length": 2,
+                "Signed": true
+            },
+            "063_FrontCrash_Vel_X": 4,
+            "064_FrontCrash_MD_Vel": 4,
+            "065_FrontCrash_Jrk": 4,
+            "066_FrontCrash_PD_X": 4,
+            "067_FrontCrash_DeltaVelocity": {
+                "Length": 4,
+                "Signed": true
+            },
+            "068_FrontCrash_DeltaVelocityCount": 2,
+            "069_FrontCrash_LocalJrk": 4,
+            "070_FrontCrash_Velthreshold": 2,
+            "071_FrontCrash_Jrkthreshold": 2,
+            "072_FrontCrash_PDthreshold": 4,
+            "073_FrontCrash_DVthreshold": 4,
+            "074_FrontCrash_LocalJrkthreshold": 2,
+            "075_FISLH_SavedAccltn_X_0": {
+                "Length": 2,
+                "Signed": true
+            },
+            "076_FISLH_SavedAccltn_X_1": {
+                "Length": 2,
+                "Signed": true
+            },
+            "077_FISLH_SavedAccltn_X_2": {
+                "Length": 2,
+                "Signed": true
+            },
+            "078_FISLH_SavedAccltn_X_3": {
+                "Length": 2,
+                "Signed": true
+            },
+            "079_FISLH_SavedAccltn_X_4": {
+                "Length": 2,
+                "Signed": true
+            },
+            "080_FISLH_SavedAccltn_X_5": {
+                "Length": 2,
+                "Signed": true
+            },
+            "081_FISLH_SavedAccltn_X_6": {
+                "Length": 2,
+                "Signed": true
+            },
+            "082_FISLH_SavedAccltn_X_7": {
+                "Length": 2,
+                "Signed": true
+            },
+            "083_FISLH_Vel_X": 4,
+            "084_FISLH_MD_Vel": 4,
+            "085_FISLH_PD_X": 4,
+            "086_FISLH_Velthreshold": 2,
+            "087_FISLH_PDthreshold": 4,
+            "088_FISRH_SavedAccltn_X_0": {
+                "Length": 2,
+                "Signed": true
+            },
+            "089_FISRH_SavedAccltn_X_1": {
+                "Length": 2,
+                "Signed": true
+            },
+            "090_FISRH_SavedAccltn_X_2": {
+                "Length": 2,
+                "Signed": true
+            },
+            "091_FISRH_SavedAccltn_X_3": {
+                "Length": 2,
+                "Signed": true
+            },
+            "092_FISRH_SavedAccltn_X_4": {
+                "Length": 2,
+                "Signed": true
+            },
+            "093_FISRH_SavedAccltn_X_5": {
+                "Length": 2,
+                "Signed": true
+            },
+            "094_FISRH_SavedAccltn_X_6": {
+                "Length": 2,
+                "Signed": true
+            },
+            "095_FISRH_SavedAccltn_X_7": {
+                "Length": 2,
+                "Signed": true
+            },
+            "096_FISRH_Vel_X": 4,
+            "097_FISRH_MD_Vel": 4,
+            "098_FISRH_PD_X": 4,
+            "099_FISRH_Velthreshold": 2,
+            "100_FISRH_PDthreshold": 4,
+            "101_RearCrash_misc_bits": 1,
+            "102_RearCrash_LowPassFilter_X": {
+                "Length": 2,
+                "Signed": true
+            },
+            "103_RearCrash_Vel_X": 4,
+            "104_RearCrash_MD_Vel": 4,
+            "105_RearCrash_PD_X": 4,
+            "106_RearCrash_Velthreshold": 2,
+            "107_RearCrash_PDthreshold": 4,
+            "108_stuff": 10,
+            "109_Timestamp": 2,
+            "110_event-type": 1,
+            "111_Algo_SaveComplete": 1,
+            "algorithm_intermediate_variable": 1856
+        },
+        "SideCrashLH": {
+            "001_x_acc_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "002_y_acc_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "003_outlay_acc_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "004_pressure_drop_signal_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "005_misc_bits": 1,
+            "006_PAS_OK_bits": 1,
+            "007_AngleCrash_FrontLH_misc_bits1": 1,
+            "008_AngleCrash_LR_misc_bits1": 1,
+            "009_AngleCrash_FrontRH_misc_bits1": 1,
+            "010_AngleCrash_RL_misc_bits1": 1,
+            "011_FrontPoleCrash_FrontLH_misc_bits1": 1,
+            "012_FrontPoleCrash_LH_misc_bits1": 1,
+            "013_FrontPoleCrash_FrontRH_misc_bits1": 1,
+            "014_FrontPoleCrash_RH_misc_bits1": 1,
+            "015_SidePoleCrash_SILH_misc_bits1": 1,
+            "016_SidePoleCrash_LH_misc_bits1": 1,
+            "017_SidePoleCrash_SIRH_misc_bits1": 1,
+            "018_SidePoleCrash_RH_misc_bits1": 1,
+            "019_Fcoff": 4,
+            "020_SideLHcoff": 4,
+            "021_SideRHcoff": 4,
+            "022_AngleCrash_FLHcoff": 4,
+            "023_AngleCrash_FRHcoff": 4,
+            "024_FrontPoleCrash_FLHcoff": 4,
+            "025_FrontPoleCrash_FRHcoff": 4,
+            "026_SidePoleCrash_SLHcoff": 4,
+            "027_SidePoleCrash_SRHcoff": 4,
+            "028_AngleCrash_FISLR_Disp_X_DiffValue": 4,
+            "029_AngleCrash_FISRL_Disp_X_DiffValue": 4,
+            "030_FrontPoleCrash_FRLH_Disp_X_DiffValue": 4,
+            "031_FrontPoleCrash_FRRH_Disp_X_DiffValue": 4,
+            "032_SidePoleCrash_SILH_Disp_Y_DiffValue": 4,
+            "033_SidePoleCrash_SIRH_Disp_Y_DiffValue": 4,
+            "034_SideCrashLH_AlgoCounter": 1,
+            "035_SISLH_AlgoCounter": 1,
+            "036_SideCrashLH_Threshold_Count": 1,
+            "037_SISLH_Threshold_Count": 1,
+            "038_SideCrashLH_fire_bits": 1,
+            "039_SideCrashLH_fire_bits2": 1,
+            "040_SideCrashLH_misc_bits": 1,
+            "041_SideCrashLH_misc_bits2": 1,
+            "042_SideCrashLH_misc_bits3": 1,
+            "043_SISLH_fire_bits": 1,
+            "044_SISLH_misc_bits2": 1,
+            "045_SISLH_misc_bits3": 1,
+            "046_SideCrashLH_SavedAccltn_Y_0": {
+                "Length": 2,
+                "Signed": true
+            },
+            "047_SideCrashLH_SavedAccltn_Y_1": {
+                "Length": 2,
+                "Signed": true
+            },
+            "048_SideCrashLH_SavedAccltn_Y_2": {
+                "Length": 2,
+                "Signed": true
+            },
+            "049_SideCrashLH_SavedAccltn_Y_3": {
+                "Length": 2,
+                "Signed": true
+            },
+            "050_SideCrashLH_SavedAccltn_Y_4": {
+                "Length": 2,
+                "Signed": true
+            },
+            "051_SideCrashLH_SavedAccltn_Y_5": {
+                "Length": 2,
+                "Signed": true
+            },
+            "052_SideCrashLH_SavedAccltn_Y_6": {
+                "Length": 2,
+                "Signed": true
+            },
+            "053_SideCrashLH_SavedAccltn_Y_7": {
+                "Length": 2,
+                "Signed": true
+            },
+            "054_SideCrashLH_LowPassFilter_Y": {
+                "Length": 2,
+                "Signed": true
+            },
+            "055_SideCrashLH_Vel_Y": 4,
+            "056_SideCrashLH_MD_Vel": 4,
+            "057_SideCrashLH_Jrk": 4,
+            "058_SideCrashLH_PD_Y": 4,
+            "059_SideCrashLH_Velthreshold": 2,
+            "060_SideCrashLH_Jrkthreshold": 2,
+            "061_SideCrashLH_PDthreshold": 4,
+            "062_SISLH_SavedAccltn_Y_0": {
+                "Length": 2,
+                "Signed": true
+            },
+            "063_SISLH_SavedAccltn_Y_1": {
+                "Length": 2,
+                "Signed": true
+            },
+            "064_SISLH_SavedAccltn_Y_2": {
+                "Length": 2,
+                "Signed": true
+            },
+            "065_SISLH_SavedAccltn_Y_3": {
+                "Length": 2,
+                "Signed": true
+            },
+            "066_SISLH_SavedAccltn_Y_4": {
+                "Length": 2,
+                "Signed": true
+            },
+            "067_SISLH_SavedAccltn_Y_5": {
+                "Length": 2,
+                "Signed": true
+            },
+            "068_SISLH_SavedAccltn_Y_6": {
+                "Length": 2,
+                "Signed": true
+            },
+            "069_SISLH_SavedAccltn_Y_7": {
+                "Length": 2,
+                "Signed": true
+            },
+            "070_SISLH_LowPassFilter_Y": {
+                "Length": 2,
+                "Signed": true
+            },
+            "071_SISLH_Vel_Y": 4,
+            "072_SISLH_PD_Y": 4,
+            "073_SISLH_Velthreshold": 2,
+            "074_SISLH_PDthreshold": 4,
+            "075_DPSLH_PP_Flag": 1,
+            "076_DPSLH_Lock": 1,
+            "077_DPSLHcoff": 4,
+            "078_DPSLH_AlgoCounter_FIRE": 1,
+            "079_DPSLH_SavedPn[0]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "080_DPSLH_SavedPn[1]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "081_DPSLH_SavedPn[2]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "082_DPSLH_SavedPn[3]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "083_DPSLH_SavedPn[4]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "084_DPSLH_SavedPn[5]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "085_DPSLH_SavedPn[6]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "086_DPSLH_SavedPn[7]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "087_DPSLH_Pn2": 2,
+            "088_DPSLH_PnSum": 4,
+            "089_DPSLH_Pn_ThrDynamic": 4,
+            "090_DPSLH_ThrDynamic": 4,
+            "091_DPSLH_PP_ThrDynamic": 4,
+            "092_stuff": 3,
+            "093_TimeStamp": 2,
+            "094_event-type": 1,
+            "095_Algo_SaveComplete": 1,
+            "algorithm_intermediate_variable": 1808
+        },
+        "SideCrashRH": {
+            "001_x_acc_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "002_y_acc_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "003_outlay_acc_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "004_pressure_drop_signal_variable": {
+                "Length": 400,
+                "SingleLength": 2,
+                "Signed": true
+            },
+            "005_misc_bits": 1,
+            "006_PAS_OK_bits": 1,
+            "007_AngleCrash_FrontLH_misc_bits1": 1,
+            "008_AngleCrash_LR_misc_bits1": 1,
+            "009_AngleCrash_FrontRH_misc_bits1": 1,
+            "010_AngleCrash_RL_misc_bits1": 1,
+            "011_FrontPoleCrash_FrontLH_misc_bits1": 1,
+            "012_FrontPoleCrash_LH_misc_bits1": 1,
+            "013_FrontPoleCrash_FrontRH_misc_bits1": 1,
+            "014_FrontPoleCrash_RH_misc_bits1": 1,
+            "015_SidePoleCrash_SILH_misc_bits1": 1,
+            "016_SidePoleCrash_LH_misc_bits1": 1,
+            "017_SidePoleCrash_SIRH_misc_bits1": 1,
+            "018_SidePoleCrash_RH_misc_bits1": 1,
+            "019_Fcoff": 4,
+            "020_SideLHcoff": 4,
+            "021_SideRHcoff": 4,
+            "022_AngleCrash_FLHcoff": 4,
+            "023_AngleCrash_FRHcoff": 4,
+            "024_FrontPoleCrash_FLHcoff": 4,
+            "025_FrontPoleCrash_FRHcoff": 4,
+            "026_SidePoleCrash_SLHcoff": 4,
+            "027_SidePoleCrash_SRHcoff": 4,
+            "028_AngleCrash_FISLR_Disp_X_DiffValue": 4,
+            "029_AngleCrash_FISRL_Disp_X_DiffValue": 4,
+            "030_FrontPoleCrash_FRLH_Disp_X_DiffValue": 4,
+            "031_FrontPoleCrash_FRRH_Disp_X_DiffValue": 4,
+            "032_SidePoleCrash_SILH_Disp_Y_DiffValue": 4,
+            "033_SidePoleCrash_SIRH_Disp_Y_DiffValue": 4,
+            "034_SideCrashRH_AlgoCounter": 1,
+            "035_SISRH_AlgoCounter": 1,
+            "036_SideCrashRH_Threshold_Count": 1,
+            "037_SISRH_Threshold_Count": 1,
+            "038_SideCrashRH_fire_bits": 1,
+            "039_SideCrashRH_fire_bits2": 1,
+            "040_SideCrashRH_misc_bits": 1,
+            "041_SideCrashRH_misc_bits2": 1,
+            "042_SideCrashRH_misc_bits3": 1,
+            "043_SISRH_fire_bits": 1,
+            "044_SISRH_misc_bits2": 1,
+            "045_SISRH_misc_bits3": 1,
+            "046_SideCrashRH_SavedAccltn_Y_0": {
+                "Length": 2,
+                "Signed": true
+            },
+            "047_SideCrashRH_SavedAccltn_Y_1": {
+                "Length": 2,
+                "Signed": true
+            },
+            "048_SideCrashRH_SavedAccltn_Y_2": {
+                "Length": 2,
+                "Signed": true
+            },
+            "049_SideCrashRH_SavedAccltn_Y_3": {
+                "Length": 2,
+                "Signed": true
+            },
+            "050_SideCrashRH_SavedAccltn_Y_4": {
+                "Length": 2,
+                "Signed": true
+            },
+            "051_SideCrashRH_SavedAccltn_Y_5": {
+                "Length": 2,
+                "Signed": true
+            },
+            "052_SideCrashRH_SavedAccltn_Y_6": {
+                "Length": 2,
+                "Signed": true
+            },
+            "053_SideCrashRH_SavedAccltn_Y_7": {
+                "Length": 2,
+                "Signed": true
+            },
+            "054_SideCrashRH_LowPassFilter_Y": {
+                "Length": 2,
+                "Signed": true
+            },
+            "055_SideCrashRH_Vel_Y": 4,
+            "056_SideCrashRH_MD_Vel": 4,
+            "057_SideCrashRH_Jrk": 4,
+            "058_SideCrashRH_PD_Y": 4,
+            "059_SideCrashRH_Velthreshold": 2,
+            "060_SideCrashRH_Jrkthreshold": 2,
+            "061_SideCrashRH_PDthreshold": 4,
+            "062_SISRH_SavedAccltn_Y_0": {
+                "Length": 2,
+                "Signed": true
+            },
+            "063_SISRH_SavedAccltn_Y_1": {
+                "Length": 2,
+                "Signed": true
+            },
+            "064_SISRH_SavedAccltn_Y_2": {
+                "Length": 2,
+                "Signed": true
+            },
+            "065_SISRH_SavedAccltn_Y_3": {
+                "Length": 2,
+                "Signed": true
+            },
+            "066_SISRH_SavedAccltn_Y_4": {
+                "Length": 2,
+                "Signed": true
+            },
+            "067_SISRH_SavedAccltn_Y_5": {
+                "Length": 2,
+                "Signed": true
+            },
+            "068_SISRH_SavedAccltn_Y_6": {
+                "Length": 2,
+                "Signed": true
+            },
+            "069_SISRH_SavedAccltn_Y_7": {
+                "Length": 2,
+                "Signed": true
+            },
+            "070_SISRH_LowPassFilter_Y": {
+                "Length": 2,
+                "Signed": true
+            },
+            "071_SISRH_Vel_Y": 4,
+            "072_SISRH_PD_Y": 4,
+            "073_SISRH_Velthreshold": 2,
+            "074_SISRH_PDthreshold": 4,
+            "075_DPSRH_PP_Flag": 1,
+            "076_DPSRH_Lock": 1,
+            "077_DPSRHcoff": 4,
+            "078_DPSRH_AlgoCounter_FIRE": 1,
+            "079_DPSRH_SavedPn[0]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "080_DPSRH_SavedPn[1]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "081_DPSRH_SavedPn[2]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "082_DPSRH_SavedPn[3]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "083_DPSRH_SavedPn[4]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "084_DPSRH_SavedPn[5]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "085_DPSRH_SavedPn[6]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "086_DPSRH_SavedPn[7]": {
+                "Length": 2,
+                "Signed": true
+            },
+            "087_DPSRH_Pn2": 2,
+            "088_DPSRH_PnSum": 4,
+            "089_DPSRH_Pn_ThrDynamic": 4,
+            "090_DPSRH_ThrDynamic": 4,
+            "091_DPSRH_PP_ThrDynamic": 4,
+            "092_stuff": 3,
+            "093_TimeStamp": 2,
+            "094_event-type": 1,
+            "095_Algo_SaveComplete": 1,
+            "algorithm_intermediate_variable": 1808
+        }
+    }
+}
